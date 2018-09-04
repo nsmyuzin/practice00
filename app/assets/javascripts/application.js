@@ -12,4 +12,5 @@
 //
 //= require rails-ujs
 //= require activestorage
+//= require ckeditor/init
 //= require_tree .
