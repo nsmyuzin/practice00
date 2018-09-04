@@ -44,6 +44,11 @@ gem 'rails-i18n'
 gem 'closure_tree'
 # active_adminでclosuretableなどを使いやすくする
 gem "active_admin-sortable_tree", "~> 2.0.0"
+# 画像関連
+gem "carrierwave"
+gem 'mini_magick'
+# エディター
+gem 'ckeditor'
 
 group :development, :test do
   # Call 'byebug' anywhere in the code to stop execution and get a debugger console

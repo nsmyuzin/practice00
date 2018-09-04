@@ -9,6 +9,7 @@ Things you may want to cover:
 
 * System dependencies
 postgresql
+imagemagick
 except turbolinks
 
 * Configuration
@@ -24,3 +25,6 @@ except turbolinks
 * Deployment instructions
 
 * ...
+
+Active_adminとCkeditorを使う上で
+URL:https://github.com/activeadmin/activeadmin/wiki/ckeditor-integration
