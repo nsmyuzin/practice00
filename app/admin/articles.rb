@@ -15,7 +15,7 @@ ActiveAdmin.register Article do
         as: :select,
         collection: Category.tree_type_order.map { |c| [c.name, c.id] }
         #collection: Category.tree_type_order.map { |c| ['-' * c.depth + c.name, c.id] }
-      f.input :sentence
+      f.input :sentence, :as => :ckeditor
     end
     f.semantic_errors
     f.actions
