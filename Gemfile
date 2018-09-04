@@ -40,6 +40,10 @@ gem 'activeadmin'
 gem 'devise'
 # 
 gem 'rails-i18n'
+# 階層構造(閉包テーブル)
+gem 'closure_tree'
+# active_adminでclosuretableなどを使いやすくする
+gem "active_admin-sortable_tree", "~> 2.0.0"
 
 group :development, :test do
   # Call 'byebug' anywhere in the code to stop execution and get a debugger console
