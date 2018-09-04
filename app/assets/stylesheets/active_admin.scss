@@ -16,3 +16,8 @@
 // For example, to change the default status-tag color:
 //
 //   .status_tag { background: #6090DB; }
+// fix ckeditor layout bug
+.cke_chrome {
+  width: 79.5% !important;
+  overflow: hidden;
+}
