@@ -1,15 +1,39 @@
 <!DOCTYPE html>
 <html>
   <head>
+    <meta charset="ushf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Blog</title>
     <%= csrf_meta_tags %>
     <%= csp_meta_tag %>
-
     <%= stylesheet_link_tag    'application', media: 'all' %>
     <%= javascript_include_tag 'application' %>
   </head>
 
   <body>
+    <header>
+      <div class='header-container'>
+        <div class="header-left">
+          <nav class='flex-square-item navibutton'><i class='fa fa-bars fa-2x'></i></nav>
+          <a href="#" class='flex-item large'>CONTENT1</a>
+          <a href="#" class='flex-item large'>CONTENT1</a>
+          <a href="#" class='flex-item large'>CONTENT1</a>
+        </div>
+        <div class="header-right">
+          <div class='flex-square-item'><i class='fa fa-envelope fa-2x'></i></div>
+        </div>
+        <a class='web-title' href=""></a>
+      </div>
+    </header>
+
     <%= yield %>
+
+    <footer>
+      <div class='footer-container'>
+        <div class='copyright-container'>
+          <p class='copyright'>© name</p>
+        </div>
+      </div>
+    </footer>
   </body>
 </html>

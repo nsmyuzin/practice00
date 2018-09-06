@@ -1,0 +1,34 @@
+/*!!!定数を定義するファイル*/
+//break point
+$responsive-mobile-bp: 768px;
+//*content width height
+//**header
+$header-height: 64px;
+//**footer
+$footer-height: 64px;
+$copyright-height: 64px;
+//**main
+$main-vertical-space: 16px;
+$front-max-width: 758px;
+$left-max-width: 180px;
+$right-max-width: 320px + $main-vertical-space;
+$main-max-width: $front-max-width + $left-max-width + $right-max-width;
+$content-max-width: $front-max-width + $right-max-width;
+//font-size
+$pc-main-font-px: 14px;
+$pc-main-font-vw: $pc-main-font-px/$main-max-width*100*1vw;
+$smart-main-font-px: 14px;
+$smart-main-font-vw: 4.0375vw;
+//line-height
+$pc-l-height:24px;
+$smart-l-height:24px;
+//background-color
+$header-background-color: #fff;
+$blogpage-background-color: #f3f5f8;
+$blogpage-front-background-color: #fff;
+$right-side-background-color: #F1F1F1;
+$footer-background-color: #2b333c;
+//font-color
+$header-font-color: black;
+$default-font-color: #333;
+$footer-font-color: #fff;

@@ -1,5 +1,7 @@
 {
   "name": "blog",
   "private": true,
-  "dependencies": {}
+  "dependencies": {
+    "ress": "^1.2.2"
+  }
 }
