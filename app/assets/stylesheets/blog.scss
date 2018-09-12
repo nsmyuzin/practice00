@@ -6,7 +6,7 @@
     padding: 24px;
     margin-left:$main-vertical-space;
     @media screen and (max-width: $responsive-mobile-bp) {
-        padding: 24px 16px;
+        padding: 16px;
     }
     .article-blog-header{
         padding: 36px 40px;
@@ -37,6 +37,7 @@
     overflow: hidden;
     padding: 10px;
     @media screen and (max-width: $responsive-mobile-bp) {
+        padding: 10px 16px;
     }
 }
 .blog-right-container{
@@ -47,6 +48,7 @@
     overflow: hidden;
     padding: 10px;
     @media screen and (max-width: $responsive-mobile-bp) {
+        padding: 10px 16px;
         margin-left:0;
     }
 }
