@@ -1,0 +1,62 @@
+<div class='container'>
+  <div class='content'>
+    <h1 class= 'xxx-large'>投稿記事一覧</h1>
+  </div>
+</div>
+<% @articles.each do |article| %>
+  <div class='container'>
+    <%= link_to blog_article_path(article.id) do %>
+      <div class='content'>
+        <article class='article-item type2'><!--画像無:type1,画像有:type2-->
+          <div class='article-blog-header'>
+            <h2 class='article-blog-title'><%= article.title %></h2>
+            <div class='article-blog-created-at'><%= article.created_at %></div>
+          </div>
+          <div class='article-blog-body'>
+            <!-- <div class='img-box'><img src="http://www.alicesoft.com/rance10/common/download/bnr_300x200b.jpg"></div>-->
+            <div class='img-box'><img src="http://widemonitor.websozai.jp/1600x900/river/page/photo/photo_018.jpg"></div>
+            <div class='sentence'> <%= simple_format(article.sentence) %> </div>
+          </div>
+          <div class="read_more">もっと見る→</div>
+        </article>
+      </div>
+    <% end %>
+  </div>
+<% end %>
+
+<%= content_for :right_content do %>
+  <div class='blog-side-other'>
+
+    <div class='side_article_list'>
+      <div class='new_title'>新着記事</div>
+      <ul>
+        <% @articles.each_with_index do |article,i| %>
+          <li class='li_article'>
+            <%= link_to blog_article_path(article.id) do %>
+              <%= article.title %>
+              <span class='join_time'><%= time_ago_in_words(article.created_at)+"前" %> </span>
+            <% end %>
+          </li>
+          <% break if i == 4%>
+        <% end %>
+      </ul>
+    </div>
+
+    <div class='category_container'>
+      <div class='new_title'>カテゴリ一覧</div>
+      <ul id="category_record">
+        <% @categories.each do |c| %>
+          <li>
+            <%= link_to blog_article_path(c.id) do %>
+              <%= "#{c.name}(20)" %>
+            <% end %>
+          </li>
+        <% end %>
+      </ul>
+    </div>
+
+  </div>
+<% end %>
+
+<%= content_for :left_content do %>
+<% end %>

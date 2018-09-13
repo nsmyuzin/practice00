@@ -3,13 +3,15 @@
 $responsive-mobile-bp: 768px;
 //*content width height
 //**header
-$header-height: 64px;
+$header-height: 52px;
 //**footer
 $footer-height: 64px;
 $copyright-height: 64px;
 //**main
 $main-vertical-space: 16px;
 $smart-main-vertical-space: 16px;
+$main-horizontal-space: 15px;
+$smart-main-horizontal-space: 15px;
 $front-max-width: 758px;
 $left-max-width: 180px;
 $right-max-width: 320px + $main-vertical-space;

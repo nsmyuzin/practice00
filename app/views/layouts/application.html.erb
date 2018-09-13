@@ -8,6 +8,8 @@
     <%= csp_meta_tag %>
     <%= stylesheet_link_tag    'application', media: 'all' %>
     <%= javascript_include_tag 'application' %>
+    <%= yield :stylesheet_a %>
+    <%= yield :script_a %>
   </head>
 
   <body>
@@ -26,7 +28,41 @@
       </div>
     </header>
 
-    <%= yield %>
+    <div class='main'>
+      <div class='top-wrapper'>
+      </div>
+      <div class='main-wrapper'>
+        <nav class='menu-wrapper'>
+        </nav>
+        <div class='content-wrapper'>
+          <!--
+            <div class='headline-wrapper'>
+            </div>
+          -->
+          <div class='front-wrapper'>
+            <div class='blog-front-container'>
+              <%= yield %>
+            </div>
+          </div>
+          <nav class='right-wrapper'>
+            <div class='blog-right-container'>
+              <div class='advertising'>
+                <a href="http://www.alicesoft.com/rance10/" title="ランス10" target="_blank"><img src="http://www.alicesoft.com/rance10/common/download/bnr_300x200b.jpg" width="300" height="250" alt="ランス10"></a>
+              </div>
+              <%= yield :right_content %>
+            </div>
+          </nav>
+        </div>
+        <nav class='left-nav-wrapper'>
+          <div class='blog-left-container'>
+            <div class='advertising'>
+              <a href="http://www.gungnir.co.jp/innocentgrey/" target="_blank"><img src="http://www.gungnir.co.jp/innocentgrey/link/kara2_banner_a4.jpg" alt="Innocent Greyが贈るサイコミステリィAVG第6弾「虚ノ少女」2013年2月8日発売！" border=0></a>
+            </div>
+            <%= yield :left_content %>
+          </div>
+        </nav>
+      </div>
+    </div>
 
     <footer>
       <div class='footer-container'>
@@ -35,5 +71,6 @@
         </div>
       </div>
     </footer>
+    <%= yield :script_b %>
   </body>
 </html>
