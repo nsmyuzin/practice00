@@ -1,0 +1,274 @@
+/*==================
+ ▼ブレイクポイントのルール▼
+ -PC版を基本設計にする-
+ *〜479px：SP縦
+ *480px〜：SP横
+ *600px〜タブレット
+ *960px〜小型PC
+ *1280px〜大型PC
+==================*/
+//定数
+@import 'variables.scss';
+//reset
+@import 'ress/dist/ress.min.css';
+html, body, div, h1, h2, h3, h4, h5, h6, p, ul, ol, li, dl, dt, dd, table, th, td {
+    margin: 0;
+    padding: 0;
+    font-family:
+    "Hiragino Kaku Gothic ProN",
+    Meiryo,
+    sans-serif;
+}
+img{
+  border: 0;//リンクが設定されたimgにつくborderを消す
+}
+img, input{
+    vertical-align: bottom;
+}
+table {
+    border-collapse: collapse;
+    border-spacing: 0;
+}
+ul, ol {
+    list-style: none; /* マーカーを消す */
+}
+/* my reset */
+*{
+    box-sizing: border-box;
+}
+a{
+    text-decoration: none; /* 下線を消す */
+}
+
+/* type */
+@mixin setting-px-vw($pc-px:$pc-main-font-px, $smart-px:$smart-main-font-px, $pc-height:$pc-l-height,$smart-height:$smart-l-height){
+    font-size: $pc-px;
+    line-height: $pc-height;
+    @media screen and (min-width: $responsive-mobile-bp) and (max-width: $main-max-width){
+        //letter-spacing: 0em;
+        //font-size: $pc-px/$main-max-width*100*1vw; //可変になる
+    }
+    //スマホ
+    @media screen and (max-width: $responsive-mobile-bp) {
+        font-size: $smart-px;
+        line-height: $smart-height;
+        //font-size: $smart-px/320px*100*1vw; //可変になる
+    }
+}
+
+html,body, h1, h2, h3, h4, h5, h6, p, a {
+    color: $default-font-color;
+    letter-spacing: 0em;
+    @include setting-px-vw();
+}
+.xxx-large{
+    @include setting-px-vw(30px, 22px, 36px, 28px);
+}
+.xx-large{
+    @include setting-px-vw(26px,20px,32px,26px);
+}
+.x-large{
+    @include setting-px-vw(20px,18px,28px,26px);
+}
+.large{
+    @include setting-px-vw(16px,16px,24px,24px);
+}
+.medium{
+    @include setting-px-vw;
+}
+.small{
+    @include setting-px-vw(12px,12px,20px,20px);
+}
+.x-small{
+    @include setting-px-vw(10px,10px,18px,18px);
+}
+.xx-small{
+    @include setting-px-vw(10px,10px,18px,18px);
+    // chrome対策 10px以下は10pxとなる
+    transform: scale(0.8);
+    transform-origin: left center;
+}
+
+/* image */
+img{
+    max-width: 100%;
+    width: 100%;
+}
+
+/* 基本レイアウト */
+body{
+}
+.main{
+    background-color: $blogpage-background-color;
+    padding-top: $header-height;
+    .top-wrapper{
+        width: 100%;
+        height:400px;
+        background-image: url('default-cover01.jpeg');//TODO 画像変更できるようにする
+        background-position: 50%;
+        background-repeat: no-repeat;
+        background-size: cover;
+        @media screen and (max-width: $responsive-mobile-bp) {
+            height:0;
+            padding-top:40%;
+        }
+    }
+    .main-wrapper{
+        max-width: $main-max-width+ $main-vertical-space*2; //padding*2の分を追加
+        width: 100%;
+        padding:15px $main-vertical-space;
+        @media screen and (max-width: $responsive-mobile-bp) {
+            padding:15px 0;
+        }
+        margin: 0 auto;
+        display: grid;
+        grid-gap: 0px; //grid間の隙間
+        grid-template-columns: $left-max-width/$main-max-width*100% $content-max-width/$main-max-width*100%; //横方向の分割割合
+        grid-auto-rows: minmax(auto, auto); //縦方向の最小px
+        .menu-wrapper{
+            background-color: green;
+            grid-row: 1;
+            grid-column: 1 / span 2;
+        }
+        .content-wrapper{
+            grid-row: 2;
+            grid-column: 2;
+            display: grid;
+            grid-gap: 0px; //grid間の隙間
+            grid-template-columns: $front-max-width/$content-max-width*100% $right-max-width/$content-max-width*100%; //横方向の分割割合
+            grid-auto-rows: minmax(auto, auto); //縦方向の最小px
+            .headline-wrapper{
+                grid-row: 1;
+                grid-column: 1 / span 2;
+            }
+            .front-wrapper{
+                grid-row: 2;
+                grid-column: 1;
+            }
+            .right-wrapper{
+                grid-row: 2;
+                grid-column: 2;
+            }
+        }
+        .left-nav-wrapper{
+            grid-row: 2;
+            grid-column: 1;
+        }
+        //スマホ
+        @media screen and (max-width: $responsive-mobile-bp) {
+            grid-template-columns: 1fr; //横方向の分割割合
+            grid-auto-rows: auto; //縦方向の最小px
+            .left-nav-wrapper,
+            .content-wrapper,
+            .menu-wrapper{
+                grid-row: auto;
+                grid-column: 1;
+            }
+            .content-wrapper{
+                grid-template-columns: 1fr; //横方向の分割割合
+                grid-auto-rows: auto; //縦方向の最小px
+                .front-wrapper,
+                .right-wrapper,
+                .headline-wrapper{
+                    grid-row: auto;
+                    grid-column: 1;
+                }
+            }
+        }
+    }
+}
+.container{
+}
+.contents{
+}
+.content{
+}
+.flexbox {
+    display:flex;
+}
+
+/* header */
+header{
+    height: $header-height;
+    width: 100%;
+    background-color: $header-background-color;
+    position :fixed;
+    top: 0;
+    a,p,h1,h2,h3,h4,h5,h6{
+        color: $header-font-color;
+    }
+    .header-container{
+        display: flex;
+        border-bottom: 1px solid #ccc;
+        .header-left{
+            flex:1;
+        }
+        .header-right, .header-left{
+            display:flex;
+            .flex-square-item{
+                width: $header-height;
+                height: $header-height;
+                cursor: pointer;
+                i{// TODO 不完全なので修正必須 1xとかに変えればわかる
+                    position: relative;
+                    top: $header-height/2;
+                    left: $header-height/2;
+                    transform: translate(-50%,-50%);//要素の半分を戻す
+                }
+            }
+            .flex-item{
+                height: $header-height;
+                line-height: $header-height;
+                cursor: pointer;
+                padding: 0 10px;
+                text-align:center;
+                @media screen and (max-width: $responsive-mobile-bp) {
+                    display:none;
+                }
+            }
+            .flex-item:hover, .flex-square-item:hover{
+                opacity: 0.7;
+                background-color: brown;
+            }
+            .navibutton{
+                @media screen and (min-width: $responsive-mobile-bp) {
+                    display: none;
+                }
+            }
+        }
+
+        .logo{
+        }
+        a.web-title{
+            position: absolute;
+            left: 50%;
+            top: 50%;
+            transform: translate(-50%,-50%);//要素の半分を戻す
+            color: $header-font-color;
+            /*pettern1 image*/
+            background: url(logo.png);
+            background-size: 300px*2/3 32px*2/3;
+            width: 300px*2/3;
+            height: 32px*2/3;
+            /*pettern2 text*/
+            //display: block;
+        }
+    }
+}
+
+/* footer */
+footer{
+    .footer-container{
+        background-color: $footer-background-color;
+        .copyright-container{
+            text-align:center;
+            height: $copyright-height;
+            .copyright{
+                line-height: $copyright-height;
+            }
+        }
+        a,p{
+            color: $footer-font-color !important;
+        }
+    }
+}
