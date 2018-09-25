@@ -1,6 +1,10 @@
 <div class='container'>
   <div class='content'>
-    <h1 class= 'xxx-large'>投稿記事一覧</h1>
+    <h1 class= 'x-large'><span class= 'xxx-large'><%= @category.present? ? @category.name : '全て' %></span>の記事一覧</h1>
+    <!-- TODO fix -->
+    <%= page_entries_info(@articles) %>
+    <a href="<%= path_to_prev_page(@articles) %>">前へ</a>
+    <a href="<%= path_to_next_page(@articles) %>">次へ</a>
   </div>
 </div>
 <% @articles.each do |article| %>
@@ -24,38 +28,15 @@
   </div>
 <% end %>
 
+<%= paginate @articles %><!-- TODO fix -->
+
 <%= content_for :right_content do %>
-  <div class='blog-side-other'>
 
-    <div class='side_article_list'>
-      <div class='new_title'>新着記事</div>
-      <ul>
-        <% @articles.each_with_index do |article,i| %>
-          <li class='li_article'>
-            <%= link_to blog_article_path(article.id) do %>
-              <%= article.title %>
-              <span class='join_time'><%= time_ago_in_words(article.created_at)+"前" %> </span>
-            <% end %>
-          </li>
-          <% break if i == 4%>
-        <% end %>
-      </ul>
-    </div>
+  <%#= @right_content.each do |rc| %>
+    <%= render "/blog/right_side/list_type1", contents:@new_articles  %>
+    <%= render "/blog/right_side/categories", contents:@categories %>
+    <%# end %>
 
-    <div class='category_container'>
-      <div class='new_title'>カテゴリ一覧</div>
-      <ul id="category_record">
-        <% @categories.each do |c| %>
-          <li>
-            <%= link_to blog_article_path(c.id) do %>
-              <%= "#{c.name}(20)" %>
-            <% end %>
-          </li>
-        <% end %>
-      </ul>
-    </div>
-
-  </div>
 <% end %>
 
 <%= content_for :left_content do %>

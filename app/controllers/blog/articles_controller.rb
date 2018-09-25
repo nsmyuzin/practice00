@@ -1,7 +1,6 @@
-class Blog::ArticlesController < ApplicationController
+class Blog::ArticlesController < Blog::BaseController
   before_action :load_article, only: [:show]
-  before_action :load_articles, only: [:show,:index]
-  before_action :load_categories
+  before_action :load_articles, only: [:index]
   def show
   end
 
@@ -12,13 +11,8 @@ class Blog::ArticlesController < ApplicationController
   def load_article
     @article = Article.find(params[:id])
   end
-
   def load_articles
-    @articles = Article.all
-  end
-
-  def load_categories
-    @categories = Category.all
+    @articles = Article.page(params[:page]).search(params[:search])
   end
 
   def article_params

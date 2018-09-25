@@ -9,42 +9,17 @@
         <div class='article-blog-body'> <%= simple_format(@article.sentence) %> </div>
       </div>
     </article>
-    <div>koukoku</div>
+    <%= link_to "<#{@article.previous.title}", blog_article_path(@article.previous.id) if @article.previous %>
+    <%= link_to "一覧", blog_articles_path %>
+    <%= link_to "#{@article.next.title}>", blog_article_path(@article.next.id) if @article.next %>
   </div>
 </div>
 
 <%= content_for :right_content do %>
-  <div class='blog-side-other'>
 
-    <div class='side_article_list'>
-      <div class='new_title'>関連記事</div>
-      <ul>
-        <% @articles.each_with_index do |article,i| %>
-          <li class='li_article'>
-            <%= link_to blog_article_path(article.id) do %>
-              <%= article.title %>
-              <span class='join_time'><%= time_ago_in_words(article.created_at) %> </span>
-            <% end %>
-          </li>
-          <% break if i == 4%>
-        <% end %>
-      </ul>
-    </div>
+  <%= render "/blog/right_side/list_type1", contents:@new_articles  %>
+  <%= render "/blog/right_side/categories", contents:@categories %>
 
-    <div class='category_container'>
-      <div class='new_title'>カテゴリ一覧</div>
-      <ul id="category_record">
-        <% @categories.each do |c| %>
-          <li>
-            <%= link_to blog_article_path(c.id) do %>
-              <%= "#{c.name}(20)" %>
-            <% end %>
-          </li>
-        <% end %>
-      </ul>
-    </div>
-
-  </div>
 <% end %>
 
 <%= content_for :left_content do %>

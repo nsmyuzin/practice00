@@ -38,7 +38,9 @@ gem 'bootsnap', '>= 1.1.0', require: false
 gem 'activeadmin'
 # アカウント機能
 gem 'devise'
-# 
+# pagenation
+gem 'kaminari'
+# 言語国際化
 gem 'rails-i18n'
 # 階層構造(閉包テーブル)
 gem 'closure_tree'

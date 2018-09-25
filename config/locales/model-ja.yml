@@ -1,0 +1,30 @@
+# モデル名
+ja:
+  activerecord:
+    models:
+      admin_user: ユーザー
+      article: 記事
+      category: カテゴリ
+      category_hierarchy: カテゴリ階層
+
+# モデルの属性名
+ja:
+  attributes:
+    created_at: 作成日時
+    updated_at: 更新日時
+  activerecord:
+    attributes:
+      admin_user:
+        email: メールアドレス
+        password: パスワード
+        password_confirmation: 確認用パスワード
+        remember_me: 次回から自動的にログイン
+      article:
+        title: タイトル
+        sentence: 文章
+        category_id: カテゴリ
+        category: カテゴリ
+      category:
+        name: カテゴリ名
+
+

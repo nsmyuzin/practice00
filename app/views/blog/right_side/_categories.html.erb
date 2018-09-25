@@ -1,0 +1,14 @@
+<div class='blog-side-other'>
+  <div class='category_container'>
+    <div class='new_title'>カテゴリ一覧</div>
+    <ul id="category_record">
+      <% contents.each do |content| %>
+        <li>
+          <%= link_to blog_category_path(content.id) do %>
+            <%= "#{content.name}(20)" %>
+          <% end %>
+        </li>
+      <% end %>
+    </ul>
+  </div>
+</div>
