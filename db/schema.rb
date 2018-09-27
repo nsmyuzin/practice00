@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2018_09_27_012542) do
+ActiveRecord::Schema.define(version: 2018_09_27_022311) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -47,6 +47,18 @@ ActiveRecord::Schema.define(version: 2018_09_27_012542) do
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.integer "category_id", comment: "カテゴリID"
+  end
+
+  create_table "banners", force: :cascade do |t|
+    t.string "m_title", null: false, comment: "管理用タイトル"
+    t.string "title", comment: "タイトル"
+    t.string "alt", comment: "alt"
+    t.integer "width", comment: "縦幅"
+    t.integer "height", comment: "横幅"
+    t.string "image_url", null: false, comment: "画像URL"
+    t.string "link_url", null: false, comment: "リンク"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
   end
 
   create_table "basic_infos", force: :cascade do |t|

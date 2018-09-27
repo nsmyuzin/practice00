@@ -4,6 +4,7 @@ ja:
     models:
       admin_user: ユーザー
       article: 記事
+      banner: バナー
       category: カテゴリ
       category_hierarchy: カテゴリ階層
       basic_info: 基本情報
@@ -25,6 +26,14 @@ ja:
         sentence: 文章
         category_id: カテゴリ
         category: カテゴリ
+      banner:
+        m_title: 管理用タイトル
+        title: タイトル
+        alt: alt
+        width: 縦幅
+        height: 横幅
+        image_url: 画像URL
+        link_url: リンク
       category:
         name: カテゴリ名
       basic_info:

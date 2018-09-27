@@ -3,7 +3,7 @@
     <article class='article-full'>
       <div class='article-blog-header'>
         <h1 class='article-blog-title'><%= @article.title %></h1>
-        <div class='article-blog-created-at'><%= @article.created_at %></div>
+        <div class='article-blog-created-at'><%= simple_time(@article.created_at) %></div>
       </div>
       <div>
         <div class='article-blog-body'> <%= simple_format(@article.sentence) %> </div>

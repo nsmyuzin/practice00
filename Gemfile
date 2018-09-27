@@ -49,6 +49,8 @@ gem "active_admin-sortable_tree", "~> 2.0.0"
 # 画像関連
 gem "carrierwave"
 gem 'mini_magick'
+# 画像解析(サイズ,拡張子)
+gem 'fastimage'
 # エディター
 gem 'ckeditor'
 # font-icon https://fontawesome.com/
