@@ -8,6 +8,17 @@ ActiveAdmin.register Article do
 #   permitted
 # end
 
+  index do
+    selectable_column
+    column :id
+    #column :image
+    column :title
+    column :category
+    actions do |article|
+      item "Preview", blog_article_path(article.id), class: "member_link", target: "_blank"
+    end
+  end
+
   form do |f|
     f.inputs do
       f.input :title

@@ -30,8 +30,8 @@ ja:
         m_title: 管理用タイトル
         title: タイトル
         alt: alt
-        width: 縦幅
-        height: 横幅
+        width: 幅
+        height: 高さ
         image_url: 画像URL
         link_url: リンク
       category:
