@@ -3,7 +3,7 @@
   <head>
     <meta charset="ushf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Blog</title>
+    <title><%= page_title %></title>
     <%= csrf_meta_tags %>
     <%= csp_meta_tag %>
     <%= stylesheet_link_tag    'application', media: 'all' %>
@@ -70,7 +70,7 @@
     <footer>
       <div class='footer-container'>
         <div class='copyright-container'>
-          <p class='copyright'>© name</p>
+          <p class='copyright'><%= @basic_info.copyright %></p>
         </div>
       </div>
     </footer>

@@ -6,6 +6,7 @@ ja:
       article: 記事
       category: カテゴリ
       category_hierarchy: カテゴリ階層
+      basic_info: 基本情報
 
 # モデルの属性名
 ja:
@@ -26,5 +27,12 @@ ja:
         category: カテゴリ
       category:
         name: カテゴリ名
+      basic_info:
+        title: サイトタイトル
+        sub_title: サイトサブタイトル
+        sentence: サイト説明文
+        header_logo: ヘッダーロゴ
+        footer_logo: フッターロゴ
+        copyright: コピーライト
 
 
