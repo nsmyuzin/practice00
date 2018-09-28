@@ -1,5 +1,7 @@
 class Article < ApplicationRecord
   belongs_to :category
+  has_many :article_selections
+  has_many :article_pickup, through: :article_selections
   validates :title, presence: true, uniqueness: true
   validates :sentence, presence: true
   default_scope { order('created_at desc') }

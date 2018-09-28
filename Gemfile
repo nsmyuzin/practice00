@@ -45,7 +45,7 @@ gem 'rails-i18n'
 # 階層構造(閉包テーブル)
 gem 'closure_tree'
 # active_adminでclosuretableなどを使いやすくする
-gem "active_admin-sortable_tree", "~> 2.0.0"
+gem "active_admin-sortable_tree", "~> 2.0.0", git: "git@github.com:nsmyuzin/active_admin-sortable_tree.git", branch: "closure_table"
 # 画像関連
 gem "carrierwave"
 gem 'mini_magick'
