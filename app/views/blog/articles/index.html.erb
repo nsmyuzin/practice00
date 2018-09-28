@@ -33,11 +33,13 @@
 <%= content_for :right_content do %>
 
   <%#= @right_content.each do |rc| %>
-    <%= render "/blog/right_side/list_type1", contents:@new_articles  %>
+    <%= render "/blog/common/banner", banner: @right_banner %>
+    <%= render "/blog/right_side/list_type1", contents:@new_articles %>
     <%= render "/blog/right_side/categories", contents:@categories %>
     <%# end %>
 
 <% end %>
 
 <%= content_for :left_content do %>
+  <%= render "/blog/common/banner", banner: @left_banner %>
 <% end %>
