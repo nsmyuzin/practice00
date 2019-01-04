@@ -17,12 +17,12 @@
 
 <%= content_for :right_content do %>
 
-  <%= render "/blog/common/banner", banner: @right_banner %>
-  <%= render "/blog/right_side/list_type1", contents:@new_articles  %>
-  <%= render "/blog/right_side/categories", contents:@categories %>
+  <%= render "/blog/common/banner", banner: @right_banner if @right_banner %>
+  <%= render "/blog/right_side/list_type1", contents:@new_articles if @new_articles %>
+  <%= render "/blog/right_side/categories", contents:@categories if @categories%>
 
 <% end %>
 
 <%= content_for :left_content do %>
-  <%= render "/blog/common/banner", banner: @left_banner %>
+  <%= render "/blog/common/banner", banner: @left_banner if @left_banner %>
 <% end %>

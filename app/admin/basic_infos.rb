@@ -2,11 +2,11 @@ ActiveAdmin.register BasicInfo do
 # See permitted parameters documentation:
 # https://github.com/activeadmin/activeadmin/blob/master/docs/2-resource-customization.md#setting-up-strong-parameters
 
-  permit_params :title, :sub_title, :sentence, :header_logo, :footer_logo, :copyright
+  permit_params :name, :sub_name, :sentence, :header_logo, :footer_logo, :copyright, :title, :meta_description, :meta_keyword
 
   index do
-    column :title
-    column :sub_title
+    column :name
+    column :sub_name
     column :header_logo do |topic|
       topic.header_logo.present? ? link_to(topic.header_logo.file.filename, topic.header_logo.url) : nil
     end

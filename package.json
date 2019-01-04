@@ -2,6 +2,7 @@
   "name": "blog",
   "private": true,
   "dependencies": {
+    "multiselect": "github:lou/multi-select",
     "ress": "^1.2.2"
   }
 }

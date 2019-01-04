@@ -22,10 +22,14 @@ ja:
         password_confirmation: 確認用パスワード
         remember_me: 次回から自動的にログイン
       article:
-        title: タイトル
+        name: 記事タイトル
         sentence: 文章
         category_id: カテゴリ
         category: カテゴリ
+        image: イメージ画像
+        title: タイトル
+        meta_keyword: メタキーワード
+        meta_description: メタディスクリプション
       banner:
         m_title: 管理用タイトル
         title: タイトル
@@ -37,11 +41,12 @@ ja:
       category:
         name: カテゴリ名
       basic_info:
-        title: サイトタイトル
-        sub_title: サイトサブタイトル
+        name: サイト名
+        sub_name: サイト名サブ
         sentence: サイト説明文
         header_logo: ヘッダーロゴ
         footer_logo: フッターロゴ
         copyright: コピーライト
-
-
+        title: タイトル
+        meta_keyword: メタキーワード
+        meta_description: メタディスクリプション

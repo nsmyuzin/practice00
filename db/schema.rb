@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2018_09_28_032226) do
+ActiveRecord::Schema.define(version: 2019_03_29_002532) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -57,11 +57,15 @@ ActiveRecord::Schema.define(version: 2018_09_28_032226) do
   end
 
   create_table "articles", force: :cascade do |t|
-    t.string "title", null: false, comment: "タイトル"
+    t.string "name", null: false, comment: "記事タイトル"
     t.text "sentence", null: false, comment: "文章"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.integer "category_id", comment: "カテゴリID"
+    t.string "image", comment: "イメージ画像"
+    t.string "title", comment: "タイトル"
+    t.string "meta_keyword", comment: "メタキーワード"
+    t.text "meta_description", comment: "メタディスクリプション"
   end
 
   create_table "banners", force: :cascade do |t|
@@ -77,14 +81,17 @@ ActiveRecord::Schema.define(version: 2018_09_28_032226) do
   end
 
   create_table "basic_infos", force: :cascade do |t|
-    t.string "title", null: false, comment: "サイトタイトル"
-    t.string "sub_title", comment: "サイトサブタイトル"
+    t.string "name", null: false, comment: "サイト名"
+    t.string "sub_name", comment: "サイト名サブ"
     t.text "sentence", comment: "サイト説明文"
     t.string "header_logo", comment: "ヘッダーロゴ"
     t.string "footer_logo", comment: "フッターロゴ"
     t.string "copyright", comment: "コピーライト"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.string "title", comment: "サイトタイトル"
+    t.string "meta_keyword", comment: "メタキーワード"
+    t.text "meta_description", comment: "メタディスクリプション"
   end
 
   create_table "categories", force: :cascade do |t|

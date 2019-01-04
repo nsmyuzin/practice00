@@ -1,5 +1,5 @@
 ActiveAdmin.register ArticlePickup do
-  permit_params :title, :content_type
+  permit_params :title, :discription, :content_type, article_ids: []
 
   index do
     selectable_column
@@ -10,17 +10,31 @@ ActiveAdmin.register ArticlePickup do
     end
   end
 
-  form do |f|
-    f.inputs do
-      f.input :title
-      f.input :content_type,
-        as: :select,
-        collection: Category.tree_type_order.map { |c| [c.name, c.id] }
-        #collection: Category.tree_type_order.map { |c| ['-' * c.depth + c.name, c.id] }
-      f.input :discription, :as => :ckeditor
+  controller do
+    def create
+      @article_pickup = ArticlePickup.new
+      if @article_pickup.custom_update!(post_params)
+        redirect_to collection_path
+      else
+        render "_edit_pickup_article", layout: "active_admin"
+      end
     end
-    f.semantic_errors
-    f.actions
+
+    def update
+      @article_pickup = ArticlePickup.find(params["id"])
+      if @article_pickup.custom_update!(post_params)
+        redirect_to collection_path
+      else
+        render "_edit_pickup_article", layout: "active_admin"
+      end
+    end
+
+    private
+    def post_params
+      permitted_params[:article_pickup]
+    end
   end
+
+  form partial: 'edit_pickup_article'
 
 end

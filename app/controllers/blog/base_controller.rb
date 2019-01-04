@@ -8,8 +8,8 @@ class Blog::BaseController < ApplicationController
     @categories = Category.all
   end
   def load_banner
-    @right_banner= Banner.find(1)
-    @left_banner= Banner.find(2)
+    @right_banner= Banner.find(1) if Banner.first.present?
+    @left_banner= Banner.find(2) if Banner.first.present?
   end
 
 end

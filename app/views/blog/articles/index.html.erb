@@ -18,8 +18,9 @@
           </div>
           <div class='article-blog-body'>
             <!-- <div class='img-box'><img src="http://www.alicesoft.com/rance10/common/download/bnr_300x200b.jpg"></div>-->
-            <div class='img-box'><img src="http://widemonitor.websozai.jp/1600x900/river/page/photo/photo_018.jpg"></div>
-            <div class='sentence'> <%= simple_format(article.sentence) %> </div>
+            <!-- <div class='img-box'> <img src="http://widemonitor.websozai.jp/1600x900/river/page/photo/photo_018.jpg"></div> -->
+            <div class='img-box'> <%= image_tag article.image.to_s %> </div>
+            <div class='sentence'> <%= article.sentence.html_safe %> </div>
           </div>
           <div class="read_more">もっと見る→</div>
         </article>
@@ -33,13 +34,13 @@
 <%= content_for :right_content do %>
 
   <%#= @right_content.each do |rc| %>
-    <%= render "/blog/common/banner", banner: @right_banner %>
-    <%= render "/blog/right_side/list_type1", contents:@new_articles %>
-    <%= render "/blog/right_side/categories", contents:@categories %>
+    <%= render "/blog/common/banner", banner: @right_banner if @right_banner %>
+    <%= render "/blog/right_side/list_type1", contents:@new_articles if @new_articles %>
+    <%= render "/blog/right_side/categories", contents:@categories if @categories %>
     <%# end %>
 
 <% end %>
 
 <%= content_for :left_content do %>
-  <%= render "/blog/common/banner", banner: @left_banner %>
+  <%= render "/blog/common/banner", banner: @left_banner if @left_banner %>
 <% end %>

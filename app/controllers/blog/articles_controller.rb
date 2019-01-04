@@ -2,9 +2,11 @@ class Blog::ArticlesController < Blog::BaseController
   before_action :load_article, only: [:show]
   before_action :load_articles, only: [:index]
   def show
+    set_meta_tags(@article.title, @article.meta_discription, @article.meta_keyword)
   end
 
   def index
+    set_meta_tags(params[:search], nil, nil)
   end
 
   private

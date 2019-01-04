@@ -7,10 +7,17 @@ module ApplicationHelper
     time.strftime("%Y-%m-%d")
   end
 
-  def page_title
-    title = @basic_info.title
-    title = @page_title + " | " + title if @page_title
-    return title
+  def default_meta_tags
+    {
+      title: (@page_title.present? ? (@page_title + " | " + @basic_info.title) : @basic_info.title),
+      description: (@meta_discription.present? ? @meta_discription : @basic_info.meta_description),
+      keywords: (@meta_keywords.present? ? @meta_keywords : @basic_info.meta_keyword),
+      charset: "utf-8",
+      viewport: "width=device-width, initial-scale=1.0",
+      noindex: ! Rails.env.production?,
+      robots: "noimageindex,noarchive",
+      og: {
+      }
+    }
   end
-
 end

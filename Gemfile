@@ -55,10 +55,17 @@ gem 'fastimage'
 gem 'ckeditor'
 # font-icon https://fontawesome.com/
 gem 'font-awesome-rails'
+# form 関連テーブル保存
+#gem 'cocoon'
+# JSへrails変数を渡せる
+gem 'gon'
+# metatagの管理
+gem 'meta-tags'
 
 group :development, :test do
   # Call 'byebug' anywhere in the code to stop execution and get a debugger console
   gem 'byebug', platforms: [:mri, :mingw, :x64_mingw]
+  gem 'rails-pry'
   gem 'rspec-rails'
   gem 'factory_bot_rails'
   gem 'rails-controller-testing'

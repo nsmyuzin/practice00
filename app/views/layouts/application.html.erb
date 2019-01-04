@@ -1,9 +1,7 @@
 <!DOCTYPE html>
 <html>
   <head>
-    <meta charset="ushf-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title><%= page_title %></title>
+    <%= display_meta_tags(default_meta_tags) %> <!-- meta-tags -->
     <%= csrf_meta_tags %>
     <%= csp_meta_tag %>
     <%= stylesheet_link_tag    'application', media: 'all' %>
@@ -17,11 +15,11 @@
       <div class='header-container'>
         <div class="header-left">
           <nav class='flex-square-item navibutton'><i class='fa fa-bars fa-2x'></i></nav>
-          <a href="#" class='flex-item large'>CONTENT1</a>
-          <a href="#" class='flex-item large'>CONTENT1</a>
-          <a href="#" class='flex-item large'>CONTENT1</a>
+          <%= link_to 'BLOG', blog_root_path, class: 'flex-item large' %>
+          <%= link_to 'ゲーム攻略(開発中)', blog_root_path, class: 'flex-item large' %>
         </div>
         <div class="header-right">
+          <%= link_to '主について(開発中)', blog_root_path, class: 'flex-item large' %>
           <div class='flex-square-item'><i class='fa fa-envelope fa-2x'></i></div>
         </div>
         <%=link_to '', root_path, class:"web-title", style:"background-image:url(#{@basic_info.header_logo.present? ? @basic_info.header_logo : 'url(logo.png)' })" %>
@@ -60,6 +58,7 @@
         </nav>
       </div>
     </div>
+    <% console %>
 
     <footer>
       <div class='footer-container'>
