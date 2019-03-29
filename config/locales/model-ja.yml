@@ -26,7 +26,24 @@ ja:
         sentence: 文章
         category_id: カテゴリ
         category: カテゴリ
+        content_id: コンテンツタイプ
+        content: コンテンツタイプ
         image: イメージ画像
+        title: タイトル
+        meta_keyword: メタキーワード
+        meta_description: メタディスクリプション
+      article_pickup:
+        title: 特集名
+        description: 説明文
+        content_type: コンテンツタイプ
+        articles: 記事
+      basic_info:
+        name: サイト名
+        sub_name: サイト名サブ
+        sentence: サイト説明文
+        header_logo: ヘッダーロゴ
+        footer_logo: フッターロゴ
+        copyright: コピーライト
         title: タイトル
         meta_keyword: メタキーワード
         meta_description: メタディスクリプション
@@ -40,13 +57,12 @@ ja:
         link_url: リンク
       category:
         name: カテゴリ名
-      basic_info:
-        name: サイト名
-        sub_name: サイト名サブ
-        sentence: サイト説明文
-        header_logo: ヘッダーロゴ
-        footer_logo: フッターロゴ
-        copyright: コピーライト
+      content:
+        name: コンテンツ
+        sub_name: コンテンツ名サブ
+        description: コンテンツ説明文
+        url: url
+        template: 使用テンプレート
         title: タイトル
-        meta_keyword: メタキーワード
-        meta_description: メタディスクリプション
+        meta_description: タグディスクリプション
+        meta_keyword: タグキーワード

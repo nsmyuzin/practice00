@@ -1,6 +1,7 @@
 <%= semantic_form_for [:admin, @article], builder: ActiveAdmin::FormBuilder do |f| %>
   <fieldset class="inputs">
     <ol>
+      <%= f.input :content_id, :as => :select, collection: Content.all.map{|c| [c.name, c.id] } %>
       <%= f.input :name, :as => :string %>
       <%= f.input :category_id, as: :select, collection: Category.tree_type_order.map { |c| [c.name, c.id] } %>
       <%= f.input :sentence, :as => :ckeditor %>

@@ -2,7 +2,7 @@ class Blog::ArticlesController < Blog::BaseController
   before_action :load_article, only: [:show]
   before_action :load_articles, only: [:index]
   def show
-    set_meta_tags(@article.title, @article.meta_discription, @article.meta_keyword)
+    set_meta_tags(@article.title, @article.meta_description, @article.meta_keyword)
   end
 
   def index

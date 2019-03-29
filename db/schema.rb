@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2019_03_29_002532) do
+ActiveRecord::Schema.define(version: 2019_03_29_072242) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -43,7 +43,7 @@ ActiveRecord::Schema.define(version: 2019_03_29_002532) do
 
   create_table "article_pickups", force: :cascade do |t|
     t.string "title", comment: "タイトル"
-    t.text "discription", comment: "説明"
+    t.text "description", comment: "説明"
     t.integer "content_type"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
@@ -66,6 +66,8 @@ ActiveRecord::Schema.define(version: 2019_03_29_002532) do
     t.string "title", comment: "タイトル"
     t.string "meta_keyword", comment: "メタキーワード"
     t.text "meta_description", comment: "メタディスクリプション"
+    t.bigint "content_id", comment: "コンテンツタイプ"
+    t.index ["content_id"], name: "index_articles_on_content_id"
   end
 
   create_table "banners", force: :cascade do |t|
@@ -122,6 +124,20 @@ ActiveRecord::Schema.define(version: 2019_03_29_002532) do
     t.index ["type"], name: "index_ckeditor_assets_on_type"
   end
 
+  create_table "contents", force: :cascade do |t|
+    t.string "name", null: false, comment: "コンテンツ名"
+    t.string "sub_name", comment: "コンテンツ名サブ"
+    t.text "description", comment: "コンテンツ説明文"
+    t.string "url", null: false, comment: "url"
+    t.integer "template", comment: "使用テンプレート"
+    t.string "title", comment: "タイトル"
+    t.text "meta_description", comment: "タグディスクリプション"
+    t.string "meta_keyword", comment: "タグキーワード"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
+
   add_foreign_key "article_selections", "article_pickups"
   add_foreign_key "article_selections", "articles"
+  add_foreign_key "articles", "contents"
 end

@@ -10,7 +10,7 @@ module ApplicationHelper
   def default_meta_tags
     {
       title: (@page_title.present? ? (@page_title + " | " + @basic_info.title) : @basic_info.title),
-      description: (@meta_discription.present? ? @meta_discription : @basic_info.meta_description),
+      description: (@meta_description.present? ? @meta_description : @basic_info.meta_description),
       keywords: (@meta_keywords.present? ? @meta_keywords : @basic_info.meta_keyword),
       charset: "utf-8",
       viewport: "width=device-width, initial-scale=1.0",

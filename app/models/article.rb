@@ -1,9 +1,11 @@
 class Article < ApplicationRecord
   mount_uploader :image, ImageUploader
   belongs_to :category
+  belongs_to :content
   has_many :article_selections
   has_many :article_pickup, through: :article_selections
   validates :name, presence: true, uniqueness: true
+  validates :content, presence: true
   validates :sentence, presence: true
   default_scope { order('created_at desc') }
 

@@ -1,5 +1,5 @@
 ActiveAdmin.register ArticlePickup do
-  permit_params :title, :discription, :content_type, article_ids: []
+  permit_params :title, :description, :content_type, article_ids: []
 
   index do
     selectable_column

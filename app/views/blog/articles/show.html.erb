@@ -2,16 +2,16 @@
   <div class='content'>
     <article class='article-full'>
       <div class='article-blog-header'>
-        <h1 class='article-blog-title'><%= @article.title %></h1>
+        <h1 class='article-blog-title'><%= @article.name %></h1>
         <div class='article-blog-created-at'><%= simple_time(@article.created_at) %></div>
       </div>
       <div>
         <div class='article-blog-body'> <%= simple_format(@article.sentence) %> </div>
       </div>
     </article>
-    <%= link_to "<#{@article.previous.title}", blog_article_path(@article.previous.id) if @article.previous %>
+    <%= link_to "<#{@article.previous.name}", blog_article_path(@article.previous.id) if @article.previous %>
     <%= link_to "一覧", blog_articles_path %>
-    <%= link_to "#{@article.next.title}>", blog_article_path(@article.next.id) if @article.next %>
+    <%= link_to "#{@article.next.name}>", blog_article_path(@article.next.id) if @article.next %>
   </div>
 </div>
 
