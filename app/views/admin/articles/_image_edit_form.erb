@@ -1,0 +1,27 @@
+<!-- モーダルウィンドウが開いている時のオーバーレイ -->
+<div class="overLay modalClose"></div>
+<!-- モーダルウィンドウの中身 -->
+<div class='inner'>
+  <%= semantic_form_for [:admin, @article], builder: ActiveAdmin::FormBuilder do |f| %>
+    <fieldset class="inputs">
+      <ol>
+        <!--画像S-->
+        <div id="result"><%= image_tag @article.image.url if @article.image.present? %></div>
+        <%= f.input :image, :as => :file, input_html: { class: 'triming_image'} %>
+        <%= f.button '画像決定', type: 'button', id: 'crop_ajax_btn' %>
+        <%= f.button 'リセット', type: 'button', id: 'crop_reset_btn' %>
+        <div class='cropper-container'>
+          <img src="" alt='トリミング画像' id="trimed_image" style="display: none;" />
+        </div>
+        <!--画像E-->
+      </ol>
+    </fieldset>
+
+    <fieldset class="modal-footer">
+      <ol>
+        <%= f.submit "保存" %>
+      </ol>
+    </fieldset>
+  <% end %>
+  <%= button_to("閉じる", '#', class: "modalClose", type: "button")%>
+</div>

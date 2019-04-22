@@ -2,6 +2,8 @@
   "name": "blog",
   "private": true,
   "dependencies": {
+    "cropperjs": "^1.4.3",
+    "jquery-cropper": "^1.0.0",
     "multiselect": "github:lou/multi-select",
     "ress": "^1.2.2"
   }

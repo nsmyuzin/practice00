@@ -5,7 +5,6 @@
       <%= f.input :name, :as => :string %>
       <%= f.input :category_id, as: :select, collection: Category.tree_type_order.map { |c| [c.name, c.id] } %>
       <%= f.input :sentence, :as => :ckeditor %>
-      <%= f.input :image, :as => :file %>
       <%= f.input :title, :as => :string %>
       <%= f.input :meta_keyword, :as => :string %>
       <%= f.input :meta_description , :as => :text %>
@@ -19,6 +18,7 @@
     </ol>
   </fieldset>
 <% end %>
+
 
 <script>
 </script>

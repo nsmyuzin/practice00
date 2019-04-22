@@ -4,4 +4,5 @@
 //= require multiselect-custom
 //= require cropperjs/dist/cropper
 //= require jquery-cropper/dist/jquery-cropper
+//= require cropper-custom
 CKEDITOR_BASEPATH = '/assets/ckeditor/';

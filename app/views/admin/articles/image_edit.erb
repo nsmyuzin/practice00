@@ -1,0 +1,120 @@
+<div id='main_content_wrapper'>
+  <%= semantic_form_for [:admin, @article], builder: ActiveAdmin::FormBuilder do |f| %>
+    <fieldset class="inputs">
+      <ol>
+        <!--画像S-->
+        <div id="result">
+          <h3>現在の画像</h3>
+          <%= image_tag @article.image.url if @article.image.present? %>
+        </div>
+        <div id="editing">
+          <h3>編集中の画像</h3>
+          <%= f.input :image, :as => :file, input_html: { class: 'triming_image'} %>
+        </div>
+        <%= f.button '画像決定', type: 'button', id: 'crop_ajax_btn' %>
+        <%= f.button 'リセット', type: 'button', id: 'crop_reset_btn' %>
+        <div class='cropper-container'>
+          <img src="" alt='トリミング画像' id="trimed_image" style="display: none;" />
+        </div>
+        <!--画像E-->
+      </ol>
+    </fieldset>
+  <% end %>
+</div>
+<div id='side_bar'>
+  <div id='actions'>
+    <div class='docs-toggles'>
+      <div class="btn-group d-flex flex-nowrap" data-toggle="buttons">
+        <label class="btn btn-primary active">
+          <input type="radio" class="sr-only" id="aspectRatio1" name="aspectRatio" value="1.7777777777777777">
+          <span class="docs-tooltip" data-toggle="tooltip" title="" data-original-title="aspectRatio: 16 / 9">
+            16:9
+          </span>
+        </label>
+        <label class="btn btn-primary">
+          <input type="radio" class="sr-only" id="aspectRatio2" name="aspectRatio" value="1.3333333333333333">
+          <span class="docs-tooltip" data-toggle="tooltip" title="" data-original-title="aspectRatio: 4 / 3">
+            4:3
+          </span>
+        </label>
+        <label class="btn btn-primary">
+          <input type="radio" class="sr-only" id="aspectRatio3" name="aspectRatio" value="1">
+          <span class="docs-tooltip" data-toggle="tooltip" title="" data-original-title="aspectRatio: 1 / 1">
+            1:1
+          </span>
+        </label>
+        <label class="btn btn-primary">
+          <input type="radio" class="sr-only" id="aspectRatio4" name="aspectRatio" value="0.6666666666666666">
+          <span class="docs-tooltip" data-toggle="tooltip" title="" data-original-title="aspectRatio: 2 / 3">
+            2:3
+          </span>
+        </label>
+        <label class="btn btn-primary">
+          <input type="radio" class="sr-only" id="aspectRatio5" name="aspectRatio" value="NaN">
+          <span class="docs-tooltip" data-toggle="tooltip" title="" data-original-title="aspectRatio: NaN">
+            Free
+          </span>
+        </label>
+      </div>
+    </div>
+    <div class="docs-data">
+      <div class="input-group input-group-sm">
+        <span class="input-group-prepend">
+          <label class="input-group-text" for="dataX">X</label>
+        </span>
+        <input type="text" class="form-control" id="dataX" placeholder="x">
+        <span class="input-group-append">
+          <span class="input-group-text">px</span>
+        </span>
+      </div>
+      <div class="input-group input-group-sm">
+        <span class="input-group-prepend">
+          <label class="input-group-text" for="dataY">Y</label>
+        </span>
+        <input type="text" class="form-control" id="dataY" placeholder="y">
+        <span class="input-group-append">
+          <span class="input-group-text">px</span>
+        </span>
+      </div>
+      <div class="input-group input-group-sm">
+        <span class="input-group-prepend">
+          <label class="input-group-text" for="dataWidth">Width</label>
+        </span>
+        <input type="text" class="form-control" id="dataWidth" placeholder="width">
+        <span class="input-group-append">
+          <span class="input-group-text">px</span>
+        </span>
+      </div>
+      <div class="input-group input-group-sm">
+        <span class="input-group-prepend">
+          <label class="input-group-text" for="dataHeight">Height</label>
+        </span>
+        <input type="text" class="form-control" id="dataHeight" placeholder="height">
+        <span class="input-group-append">
+          <span class="input-group-text">px</span>
+        </span>
+      </div>
+      <div class="input-group input-group-sm">
+        <span class="input-group-prepend">
+          <label class="input-group-text" for="dataRotate">Rotate</label>
+        </span>
+        <input type="text" class="form-control" id="dataRotate" placeholder="rotate">
+        <span class="input-group-append">
+          <span class="input-group-text">deg</span>
+        </span>
+      </div>
+      <div class="input-group input-group-sm">
+        <span class="input-group-prepend">
+          <label class="input-group-text" for="dataScaleX">ScaleX</label>
+        </span>
+        <input type="text" class="form-control" id="dataScaleX" placeholder="scaleX">
+      </div>
+      <div class="input-group input-group-sm">
+        <span class="input-group-prepend">
+          <label class="input-group-text" for="dataScaleY">ScaleY</label>
+        </span>
+        <input type="text" class="form-control" id="dataScaleY" placeholder="scaleY">
+      </div>
+    </div>
+  </div>
+</div>
