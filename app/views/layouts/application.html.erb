@@ -14,7 +14,24 @@
     <header>
       <div class='header-container'>
         <div class="header-left">
-          <nav class='flex-square-item navibutton'><i class='fa fa-bars fa-2x'></i></nav>
+          <!-- mobilenavi -->
+          <nav class='flex-square-item mobile_hanbager_nav'>
+            <div id="nav-toggle">
+              <span></span>
+              <span></span>
+              <span></span>
+            </div>
+            <div id="nav-content">
+              <ul class="nav-links">
+                <li><%= link_to 'BLOG', blog_root_path, class: '' %></li>
+                <li><%= link_to 'ゲーム攻略(開発中)', blog_root_path, class: '' %></li>
+                <li><a href="#">products</a></li>
+                <li><a href="#">media</a></li>
+                <li><a href="#">contact us</a></li>
+              </ul>
+            </div>
+          </nav>
+          <!-- navi -->
           <%= link_to 'BLOG', blog_root_path, class: 'flex-item large' %>
           <%= link_to 'ゲーム攻略(開発中)', blog_root_path, class: 'flex-item large' %>
         </div>
@@ -22,6 +39,7 @@
           <%= link_to '主について(開発中)', blog_root_path, class: 'flex-item large' %>
           <div class='flex-square-item'><i class='fa fa-envelope fa-2x'></i></div>
         </div>
+        <!-- title -->
         <%=link_to '', root_path, class:"web-title", style:"background-image:url(#{@basic_info.header_logo.present? ? @basic_info.header_logo : 'url(logo.png)' })" %>
       </div>
     </header>
@@ -58,7 +76,6 @@
         </nav>
       </div>
     </div>
-    <% console %>
 
     <footer>
       <div class='footer-container'>

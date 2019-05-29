@@ -50,11 +50,13 @@
                 }
             }
             .article-blog-body{
-                height: 120px; //TODO fix
+                max-height: 175px;
+                height: 25%;
                 .img{
                 }
                 .sentence{
-                    height: 120px; //TODO fix
+                    max-height: 175px;
+                    height: 25%;
                     overflow: hidden;
                     @extend .small;
                     margin-top: 0;
@@ -86,8 +88,10 @@
             .article-blog-body{
                 display: flex;
                 .img-box{
-                    //TODO fix
-                    flex:1;
+                    flex-basis: 25%;
+                    @media screen and (max-width: $responsive-smartphone-bp) {
+                        flex-basis: 45%;
+                    }
                     background:#cccccc;
                     margin-right: 10px;
                     text-align:center;
