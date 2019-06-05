@@ -7,34 +7,34 @@
       </div>
     </div>
     <%= form_with(model: @contact, url: contacts_path, local: true) do |f| %>
-      <div class='form-inputs'>
+      <div class='form-inputs confirm'>
         <div>
-          <p>
           <%= f.label :full_name %>
-          <%= @contact.full_name %>
+          <div class='value'>
+            <p><%= @contact.full_name %></p>
+          </div>
           <%= f.hidden_field :full_name %>
-          </p>
         </div>
         <div>
-          <p>
           <%= f.label :email %>
-          <%= @contact.email %>
+          <div class='value'>
+            <p><%= @contact.email %></p>
+          </div>
           <%= f.hidden_field :email %>
-          </p>
         </div>
         <div>
-          <p>
           <%= f.label :title %>
-          <%= @contact.title %>
+          <div class='value'>
+            <p><%= @contact.title %></p>
+          </div>
           <%= f.hidden_field :title %>
-          </p>
         </div>
         <div>
-          <p>
           <%= f.label :message %>
-          <%= simple_format(@contact.message) %>
+          <div class='value'>
+            <%= simple_format(@contact.message) %>
+          </div>
           <%= f.hidden_field :message %>
-          </p>
         </div>
       </div>
       <div class='form-buttons'>

@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2019_06_04_060548) do
+ActiveRecord::Schema.define(version: 2019_06_06_085724) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -94,6 +94,10 @@ ActiveRecord::Schema.define(version: 2019_06_04_060548) do
     t.string "title", comment: "サイトタイトル"
     t.string "meta_keyword", comment: "メタキーワード"
     t.text "meta_description", comment: "メタディスクリプション"
+    t.string "from_system_email", default: "sample@sample.com", null: false, comment: "システムメール(from)"
+    t.string "to_system_email", default: "sample@sample.com", null: false, comment: "システムメール(to)"
+    t.string "public_email", default: "sample@sample.com", null: false, comment: "公開メールアドレス"
+    t.string "email1"
   end
 
   create_table "categories", force: :cascade do |t|

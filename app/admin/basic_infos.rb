@@ -2,7 +2,8 @@ ActiveAdmin.register BasicInfo do
 # See permitted parameters documentation:
 # https://github.com/activeadmin/activeadmin/blob/master/docs/2-resource-customization.md#setting-up-strong-parameters
 
-  permit_params :name, :sub_name, :sentence, :header_logo, :footer_logo, :copyright, :title, :meta_description, :meta_keyword
+  actions :all, except: [:new, :create, :destroy]
+  permit_params :name, :sub_name, :sentence, :header_logo, :footer_logo, :copyright, :title, :meta_description, :meta_keyword, :to_system_email, :from_system_email, :public_email, :email1
 
   index do
     column :name

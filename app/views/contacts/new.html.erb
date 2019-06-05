@@ -3,27 +3,27 @@
     <div class='form-head'>
       <h1 class= 'xx-large'>お問い合わせ</h1>
       <div class='sentence'>
-        <p class=''>ご依頼・お問い合わせなどがありましたらこちらのフォームからお問い合わせください。</p>
-        <p class=''>内容をご入力の上、「確認画面へ」ボタンをクリックしてください。</p>
+        <p class=''>ご依頼・お問い合わせなどがありましたらこちらのフォームからお問い合わせください。<br>
+        内容をご入力の上、「確認画面へ」ボタンをクリックしてください。</p>
       </div>
     </div>
     <%= form_with(model: @contact, url: confirm_contacts_path, local: true) do |f| %>
       <div class='form-inputs'>
         <div>
           <%= f.label :full_name %>
-          <%= f.text_field :full_name, {placeholder:"yamada taro", class:"form-control"}%>
+          <%= f.text_field :full_name, {placeholder:"yamada taro", class:"form-control", required: true}%>
         </div>
         <div>
           <%= f.label :email %>
-          <%= f.text_field :email, {placeholder:"sample@gmail.com", class:"form-control"}%>
+          <%= f.email_field :email, {placeholder:"sample@gmail.com", class:"form-control", required: true, pattern: '[\w\d_-]+@[\w\d_-]+\.[\w\d._-]+'}%>
         </div>
         <div>
           <%= f.label :title %>
-          <%= f.text_field :title, {placeholder:"仕事の依頼", class:"form-control"}%>
+          <%= f.text_field :title, {placeholder:"仕事の依頼", class:"form-control", required: true}%>
         </div>
         <div>
           <%= f.label :message %>
-          <%= f.text_area :message, {placeholder:"メッセージ", class:"form-control"}%>
+          <%= f.text_area :message, {placeholder:"メッセージ", class:"form-control", required: true}%>
         </div>
       </div>
       <div class='form-buttons'>

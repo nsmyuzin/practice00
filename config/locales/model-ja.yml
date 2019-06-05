@@ -48,6 +48,10 @@ ja:
         title: タイトル
         meta_keyword: メタキーワード
         meta_description: メタディスクリプション
+        from_system_email: システムメール(From)
+        to_system_email: システムメール(To)
+        public_email: 公開メール
+        email1: メール1
       banner:
         m_title: 管理用タイトル
         title: タイトル

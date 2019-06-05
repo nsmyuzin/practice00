@@ -21,6 +21,10 @@ module Blog
         request_specs: false
       g.fixture_replacement :factory_bot, dir: "spec/factories"
     end
+    # form_withのエラーメッセ自動挿入を削除
+    config.action_view.field_error_proc = Proc.new do |html_tag, instance|
+      %Q(#{html_tag}).html_safe
+    end
     # Settings in config/environments/* take precedence over those specified here.
     # Application configuration can go into files in config/initializers
     # -- all .rb files in that directory are automatically loaded after loading

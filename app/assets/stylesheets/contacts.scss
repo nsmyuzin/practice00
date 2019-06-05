@@ -6,42 +6,69 @@
         text-align: center;
     }
     .sentence{
-        margin-top: 5px;
+        margin-top: 15px;
         p{
+            margin-bottom: 1em;
         }
     }
 }
 .form-inputs{
     background-color: #f6f6f6;
     border: 1px solid #dddddd;
-    margin: 12px 0;
+    margin: 15px 0;
     padding: 20px;
 }
-.form-inputs div{
+.form-inputs > div{
     margin: 6px 0;
+    width: 100%;
+    $top-input-padding: 5px;
     label{
-        font-weight: bold;
+        padding-top: $top-input-padding;
         width: 20%;
+        font-weight: bold;
         vertical-align: top;
         display: inline-block;
         text-align: right;
-        span{
+        @media screen and (max-width: $responsive-mobile-bp) {
+            width: 100%;
+            display: block;
+            text-align: left;
         }
     }
     input, textarea{
         width: 77%;
         margin-left: 2%;
-        padding: 5px 10px;
+        padding: $top-input-padding 10px;
         background-color: #fff;
         border: 1px solid #ccc;
         border-radius: 5px;
+        @media screen and (max-width: $responsive-mobile-bp) {
+            margin-top: 5px;
+            width: 100%;
+        }
     }
     textarea{
         height: 200px;
     }
+    .value{
+        display: inline-block;
+        margin-left: 2%;
+        width: 77%;
+        @media screen and (max-width: $responsive-mobile-bp) {
+            display: block;
+            width: 97%;
+        }
+        p{
+            word-wrap: break-word;
+        }
+    }
 }
 .form-buttons{
     text-align:center;
+    margin: 20px 0;
+        @media screen and (max-width: $responsive-mobile-bp) {
+            margin: 30px 0;
+        }
     input{
         margin: 0 20px;
     }
