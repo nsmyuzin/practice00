@@ -1,3 +1,48 @@
 // Place all the styles related to the contacts controller here.
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/
+.form-head{
+    h1{
+        text-align: center;
+    }
+    .sentence{
+        margin-top: 5px;
+        p{
+        }
+    }
+}
+.form-inputs{
+    background-color: #f6f6f6;
+    border: 1px solid #dddddd;
+    margin: 12px 0;
+    padding: 20px;
+}
+.form-inputs div{
+    margin: 6px 0;
+    label{
+        font-weight: bold;
+        width: 20%;
+        vertical-align: top;
+        display: inline-block;
+        text-align: right;
+        span{
+        }
+    }
+    input, textarea{
+        width: 77%;
+        margin-left: 2%;
+        padding: 5px 10px;
+        background-color: #fff;
+        border: 1px solid #ccc;
+        border-radius: 5px;
+    }
+    textarea{
+        height: 200px;
+    }
+}
+.form-buttons{
+    text-align:center;
+    input{
+        margin: 0 20px;
+    }
+}

@@ -37,7 +37,7 @@
         </div>
         <div class="header-right">
           <%= link_to '主について(開発中)', blog_root_path, class: 'flex-item large' %>
-          <div class='flex-square-item'><i class='fa fa-envelope fa-2x'></i></div>
+          <div class='flex-square-item'><%= link_to(content_tag(:i, '', class: 'fa fa-envelope fa-2x'), new_contact_path, class: 'max-link') %></div>
         </div>
         <!-- title -->
         <%=link_to '', root_path, class:"web-title", style:"background-image:url(#{@basic_info.header_logo.present? ? @basic_info.header_logo : 'url(logo.png)' })" %>

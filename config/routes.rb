@@ -1,6 +1,4 @@
 Rails.application.routes.draw do
-  get 'contacts/new'
-  get 'contacts/create'
   mount Ckeditor::Engine => '/ckeditor'
   devise_for :admin_users, ActiveAdmin::Devise.config
   begin
@@ -11,6 +9,11 @@ Rails.application.routes.draw do
   ##ROOT
   root to: 'home#index'
 
+  resources :contacts, only:[:new,:create] do
+    collection do
+      post :confirm , {format: 'html'}
+    end
+  end
 
   ##Blog
   namespace :blog do

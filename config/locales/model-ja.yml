@@ -4,11 +4,12 @@ ja:
     models:
       admin_user: ユーザー
       article: 記事
+      basic_info: 基本情報
       banner: バナー
       category: カテゴリ
       category_hierarchy: カテゴリ階層
-      basic_info: 基本情報
-
+      contact: 問い合わせ
+      content: コンテンツ
 # モデルの属性名
 ja:
   attributes:
@@ -57,6 +58,13 @@ ja:
         link_url: リンク
       category:
         name: カテゴリ名
+      contact:
+        full_name: フルネーム
+        family_name: 苗字
+        first_name: 名前
+        email: メールアドレス
+        title: タイトル
+        message: メッセージ
       content:
         name: コンテンツ
         sub_name: コンテンツ名サブ

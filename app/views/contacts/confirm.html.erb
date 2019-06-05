@@ -1,33 +1,45 @@
 <div class='container'>
   <div class='content'>
     <div class='form-head'>
-      <h1 class= 'xx-large'>お問い合わせ</h1>
+      <h1 class= 'xx-large'>お問い合わせ:内容確認</h1>
       <div class='sentence'>
-        <p class=''>ご依頼・お問い合わせなどがありましたらこちらのフォームからお問い合わせください。</p>
-        <p class=''>内容をご入力の上、「確認画面へ」ボタンをクリックしてください。</p>
+        <p>下記の入力内容に間違いがないかご確認ください。</p>
       </div>
     </div>
-    <%= form_with(model: @contact, url: confirm_contacts_path, local: true) do |f| %>
+    <%= form_with(model: @contact, url: contacts_path, local: true) do |f| %>
       <div class='form-inputs'>
         <div>
+          <p>
           <%= f.label :full_name %>
-          <%= f.text_field :full_name, {placeholder:"yamada taro", class:"form-control"}%>
+          <%= @contact.full_name %>
+          <%= f.hidden_field :full_name %>
+          </p>
         </div>
         <div>
+          <p>
           <%= f.label :email %>
-          <%= f.text_field :email, {placeholder:"sample@gmail.com", class:"form-control"}%>
+          <%= @contact.email %>
+          <%= f.hidden_field :email %>
+          </p>
         </div>
         <div>
+          <p>
           <%= f.label :title %>
-          <%= f.text_field :title, {placeholder:"仕事の依頼", class:"form-control"}%>
+          <%= @contact.title %>
+          <%= f.hidden_field :title %>
+          </p>
         </div>
         <div>
+          <p>
           <%= f.label :message %>
-          <%= f.text_area :message, {placeholder:"メッセージ", class:"form-control"}%>
+          <%= simple_format(@contact.message) %>
+          <%= f.hidden_field :message %>
+          </p>
         </div>
       </div>
       <div class='form-buttons'>
-        <%= f.submit '確認画面へ', class: 'btn-stitch small' %>
+        <%= f.submit '内容を修正する' , name: 'back', class: 'btn-stitch small gray' %>
+        <%= f.submit '送信する', class: 'btn-stitch small'  %>
       </div>
     <% end %>
   </div>
