@@ -1,0 +1,15 @@
+<!-- 1カラム -->
+<%= content_for :content do %>
+  <div class='top-wrapper'>
+  </div>
+  <div class='blog-main-wrapper blog-padding'>
+    <div class='one-column-wrapper'>
+      <div class='one-column-body'>
+        <div class='blog-front-container'>
+          <%= yield %>
+        </div>
+      </div>
+    </div>
+  </div>
+<% end %>
+<%= render :file => 'layouts/application' %>

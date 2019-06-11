@@ -1,0 +1,92 @@
+//gridでcolumnレイアウトを構築したい場合
+@mixin column-wrapper-base{
+    margin: 0 auto;
+    display: grid;
+    grid-gap: 0px; //grid間の隙間
+    grid-auto-rows: minmax(auto, auto); //縦方向の最小px
+    @media screen and (max-width: $responsive-mobile-bp) {
+        grid-template-columns: 1fr; //横方向の分割割合
+        grid-auto-rows: auto; //縦方向の最小px
+    }
+}
+.one-column-header{
+    grid-row: 1
+}
+@mixin column-base{
+    @media screen and (max-width: $responsive-mobile-bp) {
+        grid-row: auto;
+        grid-column: 1;
+    }
+}
+.one-column-wrapper{
+    @include column-wrapper-base;
+    grid-template-columns: 100%;
+    @media screen and (max-width: $responsive-mobile-bp) {
+        grid-row: auto;
+        grid-column: 1;
+    }
+    .one-column-body{
+        @include column-base;
+        grid-row: 2;
+        grid-column: 1;
+    }
+    .two-column-body{
+        display: none;
+    }
+    .three-column-body{
+        display: none;
+    }
+}
+.two-column-wrapper-right{
+    @include column-wrapper-base;
+    grid-template-columns: ($front-max-width+$left-max-width)/$main-max-width*100% $right-max-width/$main-max-width*100%; //横方向の分割割合
+    .one-column-body{
+        @include column-base;
+        grid-row: 2;
+        grid-column: 1;
+    }
+    .two-column-body{
+        @include column-base;
+        grid-row: 2;
+        grid-column: 2;
+    }
+    .three-column-body{
+        display: none;
+    }
+}
+.two-column-wrapper-left{
+    @include column-wrapper-base;
+    grid-template-columns: $left-max-width/$main-max-width*100% ($front-max-width+$right-max-width)/$main-max-width*100%; //横方向の分割割合
+    .one-column-body{
+        @include column-base;
+        grid-row: 2;
+        grid-column: 2;
+    }
+    .two-column-body{
+        display: none;
+    }
+    .three-column-body{
+        @include column-base;
+        grid-row: 2;
+        grid-column: 1;
+    }
+}
+.three-column-wrapper{
+    @include column-wrapper-base;
+    grid-template-columns: $left-max-width/$main-max-width*100% $front-max-width/$main-max-width*100% $right-max-width/$main-max-width*100%; //横方向の分割割合
+    .one-column-body{
+        @include column-base;
+        grid-row: 2;
+        grid-column: 2;
+    }
+    .two-column-body{
+        @include column-base;
+        grid-row: 2;
+        grid-column: 3;
+    }
+    .three-column-body{
+        @include column-base;
+        grid-row: 2;
+        grid-column: 1;
+    }
+}

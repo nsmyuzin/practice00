@@ -1,0 +1,24 @@
+<%= content_for :content do %>
+  <div class='top-wrapper'>
+  </div>
+  <div class='blog-main-wrapper blog-padding'>
+    <div class='three-column-wrapper'>
+      <div class='one-column-body'>
+        <div class='blog-front-container'>
+          <%= yield %>
+        </div>
+      </div>
+      <nav class='two-column-body'>
+        <div class='blog-right-container'>
+          <%= yield :right_content %>
+        </div>
+      </nav>
+      <nav class='three-column-body'>
+        <div class='blog-left-container'>
+          <%= yield :left_content %>
+        </div>
+      </nav>
+    </div>
+  </div>
+<% end %>
+<%= render :file => 'layouts/application' %>

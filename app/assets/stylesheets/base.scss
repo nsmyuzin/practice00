@@ -118,71 +118,8 @@ body{
             padding-top:40%;
         }
     }
-    .main-wrapper{
-        max-width: $main-max-width+ $main-vertical-space*2; //padding*2の分を追加
-        width: 100%;
-        padding:$main-horizontal-space $main-vertical-space;
-        @media screen and (max-width: $responsive-mobile-bp) {
-            padding: 0 0 $smart-main-horizontal-space;
-        }
-        margin: 0 auto;
-        display: grid;
-        grid-gap: 0px; //grid間の隙間
-        grid-template-columns: $left-max-width/$main-max-width*100% $content-max-width/$main-max-width*100%; //横方向の分割割合
-        grid-auto-rows: minmax(auto, auto); //縦方向の最小px
-        .menu-wrapper{
-            background-color: green;
-            grid-row: 1;
-            grid-column: 1 / span 2;
-        }
-        .content-wrapper{
-            grid-row: 2;
-            grid-column: 2;
-            display: grid;
-            grid-gap: 0px; //grid間の隙間
-            grid-template-columns: $front-max-width/$content-max-width*100% $right-max-width/$content-max-width*100%; //横方向の分割割合
-            grid-auto-rows: minmax(auto, auto); //縦方向の最小px
-            grid-auto-flow: column;
-            .headline-wrapper{
-                //grid-row: 1;
-                grid-column: 1 / span 2;
-            }
-            .front-wrapper{
-                //grid-row: 2;
-                grid-column: 1;
-            }
-            .right-wrapper{
-                //grid-row: 2;
-                grid-column: 2;
-            }
-        }
-        .left-nav-wrapper{
-            grid-row: 2;
-            grid-column: 1;
-        }
-        //スマホ
-        @media screen and (max-width: $responsive-mobile-bp) {
-            grid-template-columns: 1fr; //横方向の分割割合
-            grid-auto-rows: auto; //縦方向の最小px
-            .left-nav-wrapper,
-            .content-wrapper,
-            .menu-wrapper{
-                grid-row: auto;
-                grid-column: 1;
-            }
-            .content-wrapper{
-                grid-template-columns: 1fr; //横方向の分割割合
-                grid-auto-rows: auto; //縦方向の最小px
-                .front-wrapper,
-                .right-wrapper,
-                .headline-wrapper{
-                    grid-row: auto;
-                    grid-column: 1;
-                }
-            }
-        }
-    }
 }
+
 .flexbox {
     display:flex;
 }

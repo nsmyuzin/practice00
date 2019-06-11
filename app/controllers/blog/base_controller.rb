@@ -1,4 +1,5 @@
 class Blog::BaseController < ApplicationController
+  layout 'blog'
   before_action :load_default
   before_action :load_banner #TODO fix
 

@@ -17,12 +17,9 @@
             <div class='article-blog-created-at'><%= simple_time(article.created_at) %></div>
           </div>
           <div class='article-blog-body'>
-            <!-- <div class='img-box'><img src="http://www.alicesoft.com/rance10/common/download/bnr_300x200b.jpg"></div>-->
-            <!-- <div class='img-box'> <img src="http://widemonitor.websozai.jp/1600x900/river/page/photo/photo_018.jpg"></div> -->
             <div class='img-box'> <%= image_tag article.image.to_s %> </div>
             <div class='sentence'> <%= strip_tags(article.sentence) %> </div>
           </div>
-          <!--<div class="read_more">もっと見る→</div>>-->
         </article>
       </div>
     <% end %>

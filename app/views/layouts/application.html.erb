@@ -43,40 +43,9 @@
         <%=link_to '', root_path, class:"web-title", style:"background-image:url(#{@basic_info.header_logo.present? ? @basic_info.header_logo : 'url(logo.png)' })" %>
       </div>
     </header>
-
     <div class='main'>
-      <div class='top-wrapper'>
-      </div>
-      <div class='main-wrapper'>
-        <nav class='menu-wrapper'>
-        </nav>
-        <div class='content-wrapper'>
-          <!--
-            <div class='headline-wrapper'>
-            </div>
-          -->
-          <div class='front-wrapper'>
-            <div class='blog-front-container'>
-              <%= yield %>
-            </div>
-          </div>
-          <nav class='right-wrapper'>
-            <div class='blog-right-container'>
-              <div class='blog_data_area'>
-                <!--TODO fix-->
-              </div>
-              <%= yield :right_content %>
-            </div>
-          </nav>
-        </div>
-        <nav class='left-nav-wrapper'>
-          <div class='blog-left-container'>
-            <%= yield :left_content %>
-          </div>
-        </nav>
-      </div>
+      <%= content_for?(:content) ? yield(:content) : yield %>
     </div>
-
     <footer>
       <div class='footer-container'>
         <div class='copyright-container'>

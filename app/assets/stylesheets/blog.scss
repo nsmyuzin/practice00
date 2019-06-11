@@ -1,3 +1,19 @@
+.blog-padding{
+    padding:$main-horizontal-space $main-vertical-space;
+    @media screen and (max-width: $responsive-mobile-bp) {
+        padding: 0 0 $smart-main-horizontal-space;
+    }
+}
+
+.blog-main-wrapper{
+    max-width: $main-max-width + $main-vertical-space*2;
+    width: 100%;
+    margin: 0 auto;
+    @media screen and (max-width: $responsive-mobile-bp) {
+        padding: 0 0 $smart-main-horizontal-space;
+    }
+}
+
 .blog-front-container{
     height: 100%;
     overflow: hidden;
@@ -35,6 +51,8 @@
             }
         }
         //index
+        $blog-body-height-pc: 175px;
+        $blog-body-height-sp: 145px;
         .article-item{
             .article-blog-header{
                 padding: 0 0;
@@ -50,13 +68,15 @@
                 }
             }
             .article-blog-body{
-                $height: 175px;
-                max-height: $height;
+                max-height: $blog-body-height-pc;
                 height: 25%;
                 .img{
                 }
                 .sentence{
-                    max-height: $height;
+                    max-height: $blog-body-height-pc;
+                    @media screen and (max-width: $responsive-smartphone-bp) {
+                        max-height: $blog-body-height-sp;
+                    }
                     height: 25%;
                     overflow: hidden;
                     @extend .small;
@@ -88,17 +108,16 @@
         .type2{
             .article-blog-body{
                 display: flex;
-                $article-img-size-pc: 25%;
-                $article-img-size-sp: 45%;
                 .img-box{
-                    flex-basis: $article-img-size-pc;
+                    width: $blog-body-height-pc;
                     @media screen and (max-width: $responsive-smartphone-bp) {
-                        flex-basis: $article-img-size-sp;
+                        width: $blog-body-height-sp;
                     }
                     background:#cccccc;
                     margin-right: 10px;
                     text-align:center;
                     img{
+                        border-radius: 5px;
                         width:auto;
                         height:auto;
                         max-width:100%;
@@ -106,10 +125,7 @@
                     }
                 }
                 .sentence{
-                    flex-basis: calc( 100% - #{$article-img-size-pc} );
-                    @media screen and (max-width: $responsive-smartphone-bp) {
-                        flex-basis: calc( 100% - #{$article-img-size-sp} );
-                    }
+                    flex: 1;
                 }
             }
         }
