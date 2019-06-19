@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2019_06_19_082304) do
+ActiveRecord::Schema.define(version: 2019_06_19_091144) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -67,9 +67,9 @@ ActiveRecord::Schema.define(version: 2019_06_19_082304) do
     t.string "meta_keyword", comment: "メタキーワード"
     t.text "meta_description", comment: "メタディスクリプション"
     t.bigint "content_id", comment: "コンテンツタイプ"
-    t.integer "display_flag", default: 1, null: false, comment: "公開フラグ"
     t.datetime "from_display", comment: "公開開始日時"
     t.datetime "to_display", comment: "公開終了日時"
+    t.boolean "display_flag", default: true, null: false, comment: "公開フラグ"
     t.index ["content_id"], name: "index_articles_on_content_id"
   end
 
