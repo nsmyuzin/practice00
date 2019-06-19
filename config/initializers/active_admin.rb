@@ -157,12 +157,12 @@ ActiveAdmin.setup do |config|
   # config.before_action :do_something_awesome
 
   # == Localize Date/Time Format
-  #
+  # 時間の表記設定
   # Set the localize format to display dates and times.
   # To understand how to localize your app with I18n, read more at
   # https://github.com/svenfuchs/i18n/blob/master/lib%2Fi18n%2Fbackend%2Fbase.rb#L52
   #
-  config.localize_format = :long
+  config.localize_format = :short
 
   # == Setting a Favicon
   #
