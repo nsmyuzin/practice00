@@ -9,9 +9,9 @@
         <div class='article-blog-body'> <%= simple_format(@article.sentence) %> </div>
       </div>
     </article>
-    <%= link_to "<#{@article.previous.name}", blog_article_path(@article.previous.id) if @article.previous %>
-    <%= link_to "一覧", blog_articles_path %>
-    <%= link_to "#{@article.next.name}>", blog_article_path(@article.next.id) if @article.next %>
+    <%= link_to "<#{@article.previous.name}", article_path(@article.content.url, @article.previous.id) if @article.previous %>
+    <%= link_to "一覧", articles_path(@article.content.url) %>
+    <%= link_to "#{@article.next.name}>", article_path(@article.content.url, @article.next.id) if @article.next %>
   </div>
 </div>
 

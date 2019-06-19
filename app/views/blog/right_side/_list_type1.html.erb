@@ -4,7 +4,7 @@
     <ul>
       <% contents.each_with_index do |content,i| %>
         <li class='li_article'>
-          <%= link_to blog_article_path(content.id) do %>
+          <%= link_to article_path(content.content.url,content.id) do %>
             <%= content.name %>
             <span class='join_time'><%= time_ago_in_words(content.created_at)+"前" %> </span>
           <% end %>

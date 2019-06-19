@@ -33,7 +33,7 @@ ActiveAdmin.register Article do
     end
     actions do |article|
       item "画像編集", image_edit_admin_article_path(article.id), class: "member_link"
-      item "Preview", blog_article_path(article.id), class: "member_link", target: "_blank"
+      item "Preview", article_path(article.content.url,article.id), class: "member_link", target: "_blank"
     end
   end
 

@@ -16,12 +16,10 @@ Rails.application.routes.draw do
   end
 
   ##Blog
-  namespace :blog do
-    root to: 'articles#index'
-    ##articles
+  scope module: :blog do
     ##resources :articles, only:[:index,:show], constraints: {id: /[0-9]{1,10}/}
-    get '/all', to: 'articles#index', as: 'articles'
-    get ':id', to: 'articles#show', as: 'article', constraints: {id: /[0-9]{1,10}/}
+    get '/:c_url', to: 'articles#index', as: 'articles'
+    get '/:c_url/:id', to: 'articles#show', as: 'article', constraints: {id: /[0-9]{1,10}/}
     ##categories
     resources :categories, only:[:show], constraints: {id: /[0-9]{1,10}/}
       ## collection do

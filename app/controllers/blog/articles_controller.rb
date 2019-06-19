@@ -1,4 +1,5 @@
 class Blog::ArticlesController < Blog::BaseController
+  before_action :load_content
   before_action :load_article, only: [:show]
   before_action :load_articles, only: [:index]
   def show
@@ -10,11 +11,14 @@ class Blog::ArticlesController < Blog::BaseController
   end
 
   private
+  def load_content
+    @content = Content.find_by(url: params[:c_url])
+  end
   def load_article
     @article = Article.find(params[:id])
   end
   def load_articles
-    @articles = Article.page(params[:page]).search(params[:search])
+    @articles = @content.articles.page(params[:page]).search(params[:search])
   end
 
   def article_params

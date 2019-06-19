@@ -6,7 +6,7 @@ ActiveAdmin.register ArticlePickup do
     column :title
     column :content_type
     actions do |article|
-      #item "Preview", blog_article_path(article.id), class: "member_link", target: "_blank"
+      #item "Preview", article_path(article.id), class: "member_link", target: "_blank"
     end
   end
 

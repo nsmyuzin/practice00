@@ -6,8 +6,7 @@ ActiveAdmin.register Content do
     column :name
     column :url
     column :template
-    actions do |content|
- ##     item "Preview", blog_article_path(article.id), class: "member_link", target: "_blank"
-    end
+    actions
+    ##     item "Preview", article_path(article.id), class: "member_link", target: "_blank"
   end
 end

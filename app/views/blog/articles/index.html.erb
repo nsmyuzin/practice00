@@ -9,7 +9,7 @@
 </div>
 <% @articles.each do |article| %>
   <div class='container'>
-    <%= link_to blog_article_path(article.id) do %>
+    <%= link_to article_path(article.content.url,article.id) do %>
       <div class='content'>
         <article class='article-item type2'><!--画像無:type1,画像有:type2-->
           <div class='article-blog-header'>

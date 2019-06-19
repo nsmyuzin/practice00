@@ -23,8 +23,9 @@
             </div>
             <div id="nav-content">
               <ul class="nav-links">
-                <li><%= link_to 'BLOG', blog_root_path, class: '' %></li>
-                <li><%= link_to 'ゲーム攻略(開発中)', blog_root_path, class: '' %></li>
+                <% @contents.each do |c| %>
+                  <li><%= link_to c.name, c.url, class: '' %></li>
+                <% end %>
                 <li><a href="#">products</a></li>
                 <li><a href="#">media</a></li>
                 <li><a href="#">contact us</a></li>
@@ -32,8 +33,9 @@
             </div>
           </nav>
           <!-- navi -->
-          <%= link_to 'BLOG', blog_root_path, class: 'flex-item large' %>
-          <%= link_to 'ゲーム攻略(開発中)', blog_root_path, class: 'flex-item large' %>
+          <% @contents.each do |c| %>
+            <%= link_to c.name, c.url, class: 'flex-item large' %>
+          <% end %>
         </div>
         <div class="header-right">
           <%= link_to '主について(開発中)', blog_root_path, class: 'flex-item large' %>
