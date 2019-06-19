@@ -4,7 +4,7 @@
     <ul id="category_record">
       <% contents.each do |content| %>
         <li>
-          <%= link_to blog_category_path(content.id) do %>
+          <%= link_to category_path(content.id) do %>
             <%= "#{content.name}(20)" %>
           <% end %>
         </li>

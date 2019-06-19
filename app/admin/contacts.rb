@@ -1,7 +1,6 @@
 ActiveAdmin.register Contact do
-# See permitted parameters documentation:
-# https://github.com/activeadmin/activeadmin/blob/master/docs/2-resource-customization.md#setting-up-strong-parameters
-#
+
+  menu label: "問い合わせ", priority: 9 ##タグ設定
 # permit_params :list, :of, :attributes, :on, :model
 #
 # or

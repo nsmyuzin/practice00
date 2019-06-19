@@ -1,4 +1,5 @@
 ActiveAdmin.register AdminUser do
+  menu parent: "環境設定" ##タグ設定
   permit_params :email, :password, :password_confirmation
 
   index do

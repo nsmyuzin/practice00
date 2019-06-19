@@ -129,10 +129,19 @@ ActiveAdmin.setup do |config|
   # config.comments_order = 'created_at ASC'
   #
   # You can disable the menu item for the comments index page:
-  # config.comments_menu = false
-  #
+  config.comments_menu = false
+
+
   # You can customize the comment menu:
-  # config.comments_menu = { parent: 'Admin', priority: 1 }
+  # parentメニューの設定
+  config.namespace :admin do |admin|
+    admin.build_menu do |menu|
+      menu.add label: 'サイト設定', priority: 1
+      menu.add label: '投稿', priority: 2
+      menu.add label: 'コンテンツ管理', priority: 3
+      menu.add label: '環境設定', priority: 10
+    end
+  end
 
   # == Batch Actions
   #

@@ -1,6 +1,5 @@
 ActiveAdmin.register Banner do
-# See permitted parameters documentation:
-# https://github.com/activeadmin/activeadmin/blob/master/docs/2-resource-customization.md#setting-up-strong-parameters
+  menu parent: "コンテンツ管理" ##タグ設定
 
   permit_params :m_title, :title, :alt, :width, :height, :image_url, :link_url
 

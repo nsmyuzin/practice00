@@ -1,5 +1,6 @@
 ActiveAdmin.register_page "Setting" do
   ##パンくず
+  menu priority: 8
   breadcrumb do
     ['admin', 'Setting']
   end

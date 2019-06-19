@@ -1,6 +1,5 @@
 ActiveAdmin.register Article do
-# See permitted parameters documentation:
-# https://github.com/activeadmin/activeadmin/blob/master/docs/2-resource-customization.md#setting-up-strong-parameters
+  menu parent: "投稿"
   permit_params :content_id, :name, :sentence, :category_id, :image, :title, :meta_keyword, :meta_description
 # permit_params do
 #   permitted = [:permitted, :attributes]

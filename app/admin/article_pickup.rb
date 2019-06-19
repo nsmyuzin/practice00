@@ -1,4 +1,5 @@
 ActiveAdmin.register ArticlePickup do
+  menu parent: "コンテンツ管理" ##タグ設定
   permit_params :title, :description, :content_type, article_ids: []
 
   index do
