@@ -29,6 +29,9 @@ ja:
         category: カテゴリ
         content_id: コンテンツタイプ
         content: コンテンツタイプ
+        display_flag: 公開フラグ
+        from_display: 公開開始日時
+        to_display: 公開終了日時
         image: イメージ画像
         title: タイトル
         meta_keyword: メタキーワード
