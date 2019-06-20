@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2019_06_19_091144) do
+ActiveRecord::Schema.define(version: 2019_07_03_020249) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -155,7 +155,18 @@ ActiveRecord::Schema.define(version: 2019_06_19_091144) do
     t.datetime "updated_at", null: false
   end
 
+  create_table "side_items", force: :cascade do |t|
+    t.bigint "article_id", null: false, comment: "記事ID"
+    t.integer "item_id", null: false, comment: "モデルID"
+    t.string "item_type", null: false, comment: "モデルタイプ"
+    t.integer "place", null: false, comment: "配置可能箇所"
+    t.integer "order", null: false, comment: "順番"
+    t.integer "template", null: false
+    t.index ["article_id"], name: "index_side_items_on_article_id"
+  end
+
   add_foreign_key "article_selections", "article_pickups"
   add_foreign_key "article_selections", "articles"
   add_foreign_key "articles", "contents"
+  add_foreign_key "side_items", "articles"
 end

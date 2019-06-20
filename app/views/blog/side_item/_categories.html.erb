@@ -2,10 +2,10 @@
   <div class='category_container'>
     <div class='new_title'>カテゴリ一覧</div>
     <ul id="category_record">
-      <% contents.each do |content| %>
+      <% item.each do |i| %>
         <li>
-          <%= link_to category_path(content.id) do %>
-            <%= "#{content.name}(20)" %>
+          <%= link_to category_path(i.id) do %>
+            <%= "#{i.name}(20)" %>
           <% end %>
         </li>
       <% end %>

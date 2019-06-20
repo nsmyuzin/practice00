@@ -34,13 +34,13 @@
 </div>
 
 <%= content_for :right_content do %>
-  <%#= @right_content.each do |rc| %>
-    <%= render "/blog/common/banner", banner: @right_banner if @right_banner %>
-    <%= render "/blog/right_side/list_type1", contents:@new_articles if @new_articles %>
-    <%= render "/blog/right_side/categories", contents:@categories if @categories %>
-  <%# end %>
+  <% @r_side_items && @r_side_items.each do |rc| %>
+    <%= render "/blog/side_item/#{rc.template}", item: rc.m_instances if rc %>
+  <% end %>
 <% end %>
 
 <%= content_for :left_content do %>
-  <%= render "/blog/common/banner", banner: @left_banner if @left_banner %>
+  <% @l_side_items && @l_side_items.each do |li| %>
+    <%= render "/blog/side_item/#{li.template}", item: li.m_instances if li %>
+  <% end %>
 <% end %>

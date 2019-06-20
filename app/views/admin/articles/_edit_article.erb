@@ -8,6 +8,16 @@
       <%= f.input :title, :as => :string %>
       <%= f.input :meta_keyword, :as => :string %>
       <%= f.input :meta_description , :as => :text %>
+      <%= f.inputs :for => :side_items, class: 'inputs side_items_field' do |side_item, i| %>
+        <label><%= i%>番目</label>
+        <% if i == 1%><button id="btn" class='add_item_button' type='button'>追加する</button><% end %>
+        <%= side_item.input :item_type, as: :select, collection: SideItem::MODEL_TYPES.map{|name,key| [key,name]} %>
+        <%= side_item.input :item_id, as: :select, collection: side_item.object.class.has_attribute?(:name) ? side_item.object.m_instances.pluck(:name, :id) : side_item.object.m_instances.pluck(:title, :id) %>
+        <%= side_item.input :place, as: :select, collection: SideItem::PLACE.map{|name,key| [key,name]} %>
+        <%= side_item.input :template,as: :select, collection: SideItem::TEMPLATES.map{|name,key| [key,name]} %>
+        <%= side_item.input :order, as: :hidden, :input_html => { value: i} %>
+        <%= side_item.input :_destroy, as: :boolean %>
+      <% end %>
       <%= f.input :from_display, :as => :datetime_picker %>
       <%= f.input :to_display, :as => :datetime_picker %>
       <%= f.input :display_flag, :as => :boolean %>

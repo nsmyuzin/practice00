@@ -1,5 +1,6 @@
 #= require active_admin/base
 #= require active_admin/sortable
+//= require active_admin_custom
 //= require multiselect/js/jquery.multi-select
 //= require multiselect-custom
 //= require cropperjs/dist/cropper

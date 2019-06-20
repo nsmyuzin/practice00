@@ -15,10 +15,13 @@ class Blog::ArticlesController < Blog::BaseController
     @content = Content.find_by(url: params[:c_url])
   end
   def load_article
-    @article = Article.find(params[:id])
+    @article = @content.articles.open.find(params[:id])
+    @next_article = @article.next
+    @previous_article = @article.previous
   end
+
   def load_articles
-    @articles = @content.articles.page(params[:page]).search(params[:search])
+    @articles = @content.articles.open.page(params[:page]).search(params[:search])
   end
 
   def article_params

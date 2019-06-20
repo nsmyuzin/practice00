@@ -10,6 +10,7 @@ ja:
       category_hierarchy: カテゴリ階層
       contact: 問い合わせ
       content: コンテンツ
+      side_item: サイドアイテム
 # モデルの属性名
 ja:
   attributes:
@@ -81,3 +82,10 @@ ja:
         title: タイトル
         meta_description: タグディスクリプション
         meta_keyword: タグキーワード
+      side_item:
+        artice_id: 記事ID
+        item_id: アイテムID
+        item_type: アイテムタイプ
+        place: 配置場所
+        order: 並び順
+        template: テンプレート

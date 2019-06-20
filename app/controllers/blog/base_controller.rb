@@ -1,16 +1,15 @@
 class Blog::BaseController < ApplicationController
   layout 'blog'
   before_action :load_default
-  before_action :load_banner #TODO fix
+  after_action :load_side_items
 
   private
   def load_default
-    @new_articles = Article.limit(5)
+    @new_articles = Article.open.limit(5)
     @categories = Category.all
   end
-  def load_banner
-    @right_banner= Banner.find(1) if Banner.first.present?
-    @left_banner= Banner.find(2) if Banner.first.present?
+  def load_side_items
+    @l_side_items = @article.items(SideItem::PLACE_LEFT) if @article
+    @r_side_items = @article.items(SideItem::PLACE_RIGHT) if @article
   end
-
 end

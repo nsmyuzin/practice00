@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 source 'https://rubygems.org'
 git_source(:github) { |repo| "https://github.com/#{repo}.git" }
 
@@ -45,9 +47,9 @@ gem 'rails-i18n'
 # 階層構造(閉包テーブル)
 gem 'closure_tree'
 # active_adminでclosuretableなどを使いやすくする
-gem "active_admin-sortable_tree", "~> 2.0.0", git: "git@github.com:nsmyuzin/active_admin-sortable_tree.git", branch: "closure_table"
+gem 'active_admin-sortable_tree', '~> 2.0.0', git: 'git@github.com:nsmyuzin/active_admin-sortable_tree.git', branch: 'closure_table'
 # 画像関連
-gem "carrierwave"
+gem 'carrierwave'
 gem 'mini_magick'
 # 画像解析(サイズ,拡張子)
 gem 'fastimage'
@@ -56,7 +58,7 @@ gem 'ckeditor'
 # font-icon https://fontawesome.com/
 gem 'font-awesome-rails'
 # form 関連テーブル保存
-#gem 'cocoon'
+# gem 'cocoon'
 # JSへrails変数を渡せる
 gem 'gon'
 # metatagの管理
@@ -64,20 +66,23 @@ gem 'meta-tags'
 
 group :development, :test do
   # Call 'byebug' anywhere in the code to stop execution and get a debugger console
-  gem 'byebug', platforms: [:mri, :mingw, :x64_mingw]
-  gem 'rails-pry'
-  gem 'rspec-rails'
+  gem 'byebug', platforms: %i[mri mingw x64_mingw]
   gem 'factory_bot_rails'
   gem 'rails-controller-testing'
+  gem 'rails-flog', require: 'flog'
+  gem 'rails-pry'
+  gem 'rspec-rails'
+  gem 'rubocop', require: false
 end
 
 group :development do
   # Access an interactive console on exception pages or by calling 'console' anywhere in the code.
-  gem 'web-console', '>= 3.3.0'
   gem 'listen', '>= 3.0.5', '< 3.2'
+  gem 'web-console', '>= 3.3.0'
   # Spring speeds up development by keeping your application running in the background. Read more: https://github.com/rails/spring
   gem 'spring'
   gem 'spring-watcher-listen', '~> 2.0.0'
+  gem 'rb-readline'
 end
 
 group :test do
@@ -89,4 +94,4 @@ group :test do
 end
 
 # Windows does not include zoneinfo files, so bundle the tzinfo-data gem
-gem 'tzinfo-data', platforms: [:mingw, :mswin, :x64_mingw, :jruby]
+gem 'tzinfo-data', platforms: %i[mingw mswin x64_mingw jruby]
