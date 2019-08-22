@@ -1,0 +1,91 @@
+# モデル名
+ja:
+  activerecord:
+    models:
+      admin_user: ユーザー
+      article: 記事
+      basic_info: 基本情報
+      banner: バナー
+      category: カテゴリ
+      category_hierarchy: カテゴリ階層
+      contact: 問い合わせ
+      content: コンテンツ
+      side_item: サイドアイテム
+# モデルの属性名
+ja:
+  attributes:
+    created_at: 作成日時
+    updated_at: 更新日時
+  activerecord:
+    attributes:
+      admin_user:
+        email: メールアドレス
+        password: パスワード
+        password_confirmation: 確認用パスワード
+        remember_me: 次回から自動的にログイン
+      article:
+        name: 記事タイトル
+        sentence: 文章
+        category_id: カテゴリ
+        category: カテゴリ
+        content_id: コンテンツタイプ
+        content: コンテンツタイプ
+        display_flag: 公開フラグ
+        from_display: 公開開始日時
+        to_display: 公開終了日時
+        image: イメージ画像
+        title: タイトル
+        meta_keyword: メタキーワード
+        meta_description: メタディスクリプション
+      article_pickup:
+        title: 特集名
+        description: 説明文
+        content_type: コンテンツタイプ
+        articles: 記事
+      basic_info:
+        name: サイト名
+        sub_name: サイト名サブ
+        sentence: サイト説明文
+        header_logo: ヘッダーロゴ
+        footer_logo: フッターロゴ
+        copyright: コピーライト
+        title: タイトル
+        meta_keyword: メタキーワード
+        meta_description: メタディスクリプション
+        from_system_email: システムメール(From)
+        to_system_email: システムメール(To)
+        public_email: 公開メール
+        email1: メール1
+      banner:
+        m_title: 管理用タイトル
+        title: タイトル
+        alt: alt
+        width: 幅
+        height: 高さ
+        image_url: 画像URL
+        link_url: リンク
+      category:
+        name: カテゴリ名
+      contact:
+        full_name: フルネーム
+        family_name: 苗字
+        first_name: 名前
+        email: メールアドレス
+        title: タイトル
+        message: メッセージ
+      content:
+        name: コンテンツ
+        sub_name: コンテンツ名サブ
+        description: コンテンツ説明文
+        url: url
+        template: 使用テンプレート
+        title: タイトル
+        meta_description: タグディスクリプション
+        meta_keyword: タグキーワード
+      side_item:
+        artice_id: 記事ID
+        item_id: アイテムID
+        item_type: アイテムタイプ
+        place: 配置場所
+        order: 並び順
+        template: テンプレート

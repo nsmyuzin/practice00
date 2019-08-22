@@ -10,6 +10,7 @@ module Blog
   class Application < Rails::Application
     # Initialize configuration defaults for originally generated Rails version.
     config.load_defaults 5.2
+    config.i18n.default_locale = :ja # デフォルトのlocaleを日本語(:ja)にする
     config.generators do |g|
       g.test_framework :rspec,
         fixtures: true,
@@ -19,6 +20,10 @@ module Blog
         controller_specs: true,
         request_specs: false
       g.fixture_replacement :factory_bot, dir: "spec/factories"
+    end
+    # form_withのエラーメッセ自動挿入を削除
+    config.action_view.field_error_proc = Proc.new do |html_tag, instance|
+      %Q(#{html_tag}).html_safe
     end
     # Settings in config/environments/* take precedence over those specified here.
     # Application configuration can go into files in config/initializers

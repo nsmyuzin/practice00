@@ -12,6 +12,8 @@
 @import "active_admin/base";
 // For active_admin-sortable_tree
 @import "active_admin/sortable";
+@import "multiselect/css/multi-select.css";
+@import "cropperjs/dist/cropper.css";
 // Overriding any non-variable SASS must be done after the fact.
 // For example, to change the default status-tag color:
 //

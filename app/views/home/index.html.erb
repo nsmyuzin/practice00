@@ -1,36 +1,22 @@
-<div class='main'>
-  <div class='top-wrapper'>
+<article>
+  <div class='article-blog-header'>
+    <h1 class='article-blog-title'>HOME</h1>
+    <div class='article-blog-created-at'>TIME</div>
   </div>
-  <div class='main-wrapper'>
-    <nav class='menu-wrapper'>
-    </nav>
-    <div class='content-wrapper'>
-      <div class='headline-wrapper'>
-      </div>
-      <div class='front-wrapper'>
-        <div class='blog-front-container'>
-          <article>
-            <div class='article-blog-header'>
-              <h1 class='article-blog-title'>タイトル</h1>
-              <div class='article-blog-created-at'>time</div>
-            </div>
-            <div>
-              <div class='article-blog-body'>記事内容だよ</div>
-            </div>
-          </article>
-          <div>koukoku</div>
-        </div>
-      </div>
-      <nav class='right-wrapper'>
-        <div class='blog-right-container'>
-          <p>Right-nav</p>
-        </div>
-      </nav>
-    </div>
-    <nav class='left-nav-wrapper'>
-      <div class='blog-left-container'>
-        <p>Left-nav</p>
-      </div>
-    </nav>
+  <div>
+    <div class='article-blog-body'>どうするだよ</div>
   </div>
-</div>
+</article>
+<div>koukoku</div>
+
+<%= content_for :right_content do %>
+  <% @r_side_items && @r_side_items.each do |rc| %>
+    <%= render "/blog/side_item/#{rc.template}", item: rc.m_instances if rc %>
+  <% end %>
+<% end %>
+
+<%= content_for :left_content do %>
+  <% @l_side_items && @l_side_items.each do |li| %>
+    <%= render "/blog/side_item/#{li.template}", item: li.m_instances if li %>
+  <% end %>
+<% end %>

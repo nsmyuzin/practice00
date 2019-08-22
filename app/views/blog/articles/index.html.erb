@@ -1,0 +1,41 @@
+<div class='container'>
+  <div class='content'>
+    <h1 class= 'x-large'><span class= 'xxx-large'><%= @category.present? ? @category.name : '全て' %></span>の記事一覧</h1>
+    <!-- TODO fix -->
+    <%= page_entries_info(@articles) %>
+    <a href="<%= path_to_prev_page(@articles) %>">前へ</a>
+    <a href="<%= path_to_next_page(@articles) %>">次へ</a>
+  </div>
+</div>
+<% @articles.each do |article| %>
+  <div class='container'>
+    <%= link_to article_path(article.content.url,article.id) do %>
+      <div class='content'>
+        <article class='article-item type2'><!--画像無:type1,画像有:type2-->
+          <div class='article-blog-header'>
+            <h2 class='article-blog-title'><%= article.name %></h2>
+            <div class='article-blog-created-at'><%= simple_time(article.created_at) %></div>
+          </div>
+          <div class='article-blog-body'>
+            <div class='img-box'> <%= image_tag article.image.to_s %> </div>
+            <div class='sentence'> <%= strip_tags(article.sentence) %> </div>
+          </div>
+        </article>
+      </div>
+    <% end %>
+  </div>
+<% end %>
+
+<%= paginate @articles %><!-- TODO fix -->
+
+<%= content_for :right_content do %>
+  <% @r_side_items && @r_side_items.each do |rc| %>
+    <%= render "/blog/side_item/#{rc.template}", item: rc.m_instances if rc %>
+  <% end %>
+<% end %>
+
+<%= content_for :left_content do %>
+  <% @l_side_items && @l_side_items.each do |li| %>
+    <%= render "/blog/side_item/#{li.template}", item: li.m_instances if li %>
+  <% end %>
+<% end %>

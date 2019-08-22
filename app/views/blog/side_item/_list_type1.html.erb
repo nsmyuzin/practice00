@@ -1,0 +1,16 @@
+<div class='blog-side-other'>
+  <div class='side_article_list'>
+    <div class='new_title'>新着記事</div>
+    <ul>
+      <% item.each_with_index do |it,i| %>
+        <li class='li_article'>
+          <%= link_to article_path(it.content.url,it.id) do %>
+            <%= it.name %>
+            <span class='join_time'><%= time_ago_in_words(it.created_at)+"前" %> </span>
+          <% end %>
+        </li>
+        <% break if i == 4%>
+      <% end %>
+    </ul>
+  </div>
+</div>

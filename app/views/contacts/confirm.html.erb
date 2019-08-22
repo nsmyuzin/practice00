@@ -1,0 +1,46 @@
+<div class='container'>
+  <div class='content'>
+    <div class='form-head'>
+      <h1 class= 'xx-large'>お問い合わせ:内容確認</h1>
+      <div class='sentence'>
+        <p>下記の入力内容に間違いがないかご確認ください。</p>
+      </div>
+    </div>
+    <%= form_with(model: @contact, url: contacts_path, local: true) do |f| %>
+      <div class='form-inputs confirm'>
+        <div>
+          <%= f.label :full_name %>
+          <div class='value'>
+            <p><%= @contact.full_name %></p>
+          </div>
+          <%= f.hidden_field :full_name %>
+        </div>
+        <div>
+          <%= f.label :email %>
+          <div class='value'>
+            <p><%= @contact.email %></p>
+          </div>
+          <%= f.hidden_field :email %>
+        </div>
+        <div>
+          <%= f.label :title %>
+          <div class='value'>
+            <p><%= @contact.title %></p>
+          </div>
+          <%= f.hidden_field :title %>
+        </div>
+        <div>
+          <%= f.label :message %>
+          <div class='value'>
+            <%= simple_format(@contact.message) %>
+          </div>
+          <%= f.hidden_field :message %>
+        </div>
+      </div>
+      <div class='form-buttons'>
+        <%= f.submit '内容を修正する' , name: 'back', class: 'btn-stitch small gray' %>
+        <%= f.submit '送信する', class: 'btn-stitch small'  %>
+      </div>
+    <% end %>
+  </div>
+</div>

@@ -1,0 +1,28 @@
+<div class='container'>
+  <div class='content'>
+    <article class='article-full'>
+      <div class='article-blog-header'>
+        <h1 class='article-blog-title'><%= @article.name %></h1>
+        <div class='article-blog-created-at'><%= simple_time(@article.created_at) %></div>
+      </div>
+      <div>
+        <div class='article-blog-body'> <%= simple_format(@article.sentence) %> </div>
+      </div>
+    </article>
+    <%= link_to "<#{@previous_article.name}", article_path(@previous_article.content.url, @previous_article.id) if @previous_article %>
+    <%= link_to "一覧", articles_path(@article.content.url) %>
+    <%= link_to "#{@next_article.name}>", article_path(@next_article.content.url, @next_article.id) if @next_article %>
+  </div>
+</div>
+
+<%= content_for :right_content do %>
+  <% @r_side_items && @r_side_items.each do |rc| %>
+    <%= render "/blog/side_item/#{rc.template}", item: rc.m_instances if rc %>
+  <% end %>
+<% end %>
+
+<%= content_for :left_content do %>
+  <% @l_side_items && @l_side_items.each do |li| %>
+    <%= render "/blog/side_item/#{li.template}", item: li.m_instances if li %>
+  <% end %>
+<% end %>
